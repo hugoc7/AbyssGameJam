@@ -1,5 +1,8 @@
 extends Node
 
+@export var world_rect : Rect2 = Rect2(-2000, -2000, 4000, 4000)
+
+
 signal level_color_state_changed(color: Enums.LightColor)
 
 var level_color_state = Enums.LightColor.WHITE
@@ -23,4 +26,9 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("debug_switch_level_color"):
 		_switch_color()
+		
+	# si le joueur sort du monde on le remet au spawn
+	if not world_rect.has_point($Player.position):
+		print_debug("Le joueur est sorti du monde. Replacer au spwan.")
+		$Player.position = $PlayerSpawn.position
 		
