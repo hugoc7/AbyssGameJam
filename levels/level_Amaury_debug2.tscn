@@ -1,0 +1,86 @@
+[gd_scene load_steps=14 format=3 uid="uid://cjtbsskqs17h3"]
+
+[ext_resource type="Script" path="res://game_manager/game_manager.gd" id="1_mkhcp"]
+[ext_resource type="PackedScene" uid="uid://bmul6447vnsfc" path="res://menu/main_menu.tscn" id="2_p8tfw"]
+[ext_resource type="Texture2D" uid="uid://dl4qnp8j0q2fs" path="res://background/bkg_light.tres" id="3_foh6r"]
+[ext_resource type="Script" path="res://background/background.gd" id="4_1on1x"]
+[ext_resource type="Texture2D" uid="uid://chskkiuolcqd6" path="res://background/bkg_dark.tres" id="5_lbkyt"]
+[ext_resource type="PackedScene" uid="uid://ck8o5v52wgvf6" path="res://player/player.tscn" id="6_vocaj"]
+[ext_resource type="PackedScene" uid="uid://cbe8prr8x1r0m" path="res://enemy/enemy_contact.tscn" id="7_w0fgk"]
+[ext_resource type="PackedScene" uid="uid://dkdfa3qyl3g7c" path="res://enemy/enemy_bat.tscn" id="8_anlvf"]
+[ext_resource type="PackedScene" uid="uid://85ag7xxy5r67" path="res://hud.tscn" id="8_kfuhu"]
+[ext_resource type="Script" path="res://camera/camera.gd" id="9_d3iuq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w26nm"]
+size = Vector2(1152, 43)
+
+[sub_resource type="Gradient" id="Gradient_remp2"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gf473"]
+gradient = SubResource("Gradient_remp2")
+
+[node name="levelAmaury" type="Node2D"]
+script = ExtResource("1_mkhcp")
+main_menu = ExtResource("2_p8tfw")
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(120, 390)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1152.46, 251.47)
+rotation = 1.5708
+scale = Vector2(3.06455, 2307.23)
+texture = ExtResource("3_foh6r")
+script = ExtResource("4_1on1x")
+dark_texture = ExtResource("5_lbkyt")
+light_texture = ExtResource("3_foh6r")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(577, 617.5)
+
+[node name="Collider" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_w26nm")
+debug_color = Color(0.572549, 0.454902, 0.823529, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+scale = Vector2(4.49609, 43)
+texture = SubResource("GradientTexture1D_gf473")
+
+[node name="Ground2" type="StaticBody2D" parent="."]
+position = Vector2(1727, 617)
+
+[node name="Collider" type="CollisionShape2D" parent="Ground2"]
+shape = SubResource("RectangleShape2D_w26nm")
+debug_color = Color(0.572549, 0.454902, 0.823529, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground2"]
+scale = Vector2(4.49609, 43)
+texture = SubResource("GradientTexture1D_gf473")
+
+[node name="Player" parent="." instance=ExtResource("6_vocaj")]
+position = Vector2(136, 489)
+
+[node name="Enemy" type="Node" parent="."]
+
+[node name="EnemyContactW" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_w0fgk")]
+position = Vector2(1798, 1161)
+player = NodePath("../../Player")
+
+[node name="EnemyContactB" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_w0fgk")]
+position = Vector2(2023, 1162)
+color = 1
+player = NodePath("../../Player")
+
+[node name="EnemyBatW" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_anlvf")]
+position = Vector2(574, 546)
+player = NodePath("../../Player")
+
+[node name="HUD" parent="." instance=ExtResource("8_kfuhu")]
+
+[node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+offset = Vector2(0, -200)
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("9_d3iuq")
+target = NodePath("../Player")
+
+[connection signal="life_changed" from="Player" to="HUD" method="_on_player_life_changed"]
