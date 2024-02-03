@@ -12,6 +12,7 @@ class_name EnemyContact
 @export var damage : int = 10
 @export var attack_range : float = 200
 @export var life = 10
+@export var die_vfx : PackedScene
 
 var is_in_cooldown = false
 
@@ -22,6 +23,9 @@ func take_damage(damage: int):
 		die()
 		
 func die():
+	var die_vfx_instance = die_vfx.instantiate()
+	die_vfx_instance.position = position
+	get_parent().add_child(die_vfx_instance)
 	queue_free()
 
 func _ready():

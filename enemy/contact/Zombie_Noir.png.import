@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4ulhgtsqt61w"
-path="res://.godot/imported/Bat_Blanc.png-e7f61dc74f73aee12cf9eab548293475.ctex"
+uid="uid://cj5qks436wjqt"
+path="res://.godot/imported/Zombie_Noir.png-f41aa0e3446dd5112d80a5f15bcb5589.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy/Bat_Blanc.png"
-dest_files=["res://.godot/imported/Bat_Blanc.png-e7f61dc74f73aee12cf9eab548293475.ctex"]
+source_file="res://enemy/contact/Zombie_Noir.png"
+dest_files=["res://.godot/imported/Zombie_Noir.png-f41aa0e3446dd5112d80a5f15bcb5589.ctex"]
 
 [params]
 

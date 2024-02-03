@@ -6,9 +6,9 @@
 [ext_resource type="Script" path="res://background/background.gd" id="4_1on1x"]
 [ext_resource type="Texture2D" uid="uid://chskkiuolcqd6" path="res://background/bkg_dark.tres" id="5_lbkyt"]
 [ext_resource type="PackedScene" uid="uid://ck8o5v52wgvf6" path="res://player/player.tscn" id="6_vocaj"]
-[ext_resource type="PackedScene" uid="uid://cbe8prr8x1r0m" path="res://enemy/enemy_contact.tscn" id="7_w0fgk"]
-[ext_resource type="PackedScene" uid="uid://dkdfa3qyl3g7c" path="res://enemy/enemy_bat.tscn" id="8_anlvf"]
-[ext_resource type="PackedScene" uid="uid://85ag7xxy5r67" path="res://hud.tscn" id="8_kfuhu"]
+[ext_resource type="PackedScene" uid="uid://cbe8prr8x1r0m" path="res://enemy/contact/enemy_contact.tscn" id="7_w0fgk"]
+[ext_resource type="PackedScene" uid="uid://dkdfa3qyl3g7c" path="res://enemy/bat/enemy_bat.tscn" id="8_anlvf"]
+[ext_resource type="PackedScene" uid="uid://85ag7xxy5r67" path="res://hud/hud.tscn" id="8_kfuhu"]
 [ext_resource type="Script" path="res://camera/camera.gd" id="9_d3iuq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w26nm"]

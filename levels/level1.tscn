@@ -5,9 +5,9 @@
 [ext_resource type="Script" path="res://background/background.gd" id="2_ir2ia"]
 [ext_resource type="Texture2D" uid="uid://chskkiuolcqd6" path="res://background/bkg_dark.tres" id="3_nmii0"]
 [ext_resource type="PackedScene" uid="uid://ck8o5v52wgvf6" path="res://player/player.tscn" id="4_4egl6"]
-[ext_resource type="PackedScene" uid="uid://cbe8prr8x1r0m" path="res://enemy/enemy_contact.tscn" id="5_mowys"]
+[ext_resource type="PackedScene" uid="uid://cbe8prr8x1r0m" path="res://enemy/contact/enemy_contact.tscn" id="5_mowys"]
 [ext_resource type="Script" path="res://camera/camera.gd" id="7_odr88"]
-[ext_resource type="PackedScene" uid="uid://85ag7xxy5r67" path="res://hud.tscn" id="7_vfnx0"]
+[ext_resource type="PackedScene" uid="uid://85ag7xxy5r67" path="res://hud/hud.tscn" id="7_vfnx0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w26nm"]
 size = Vector2(1152, 43)
@@ -50,16 +50,11 @@ position = Vector2(136, 489)
 
 [node name="EnemyContact" parent="Enemy" instance=ExtResource("5_mowys")]
 position = Vector2(843, 262)
-damage = 10
-attack_range = 200.0
 life = 200
 
 [node name="EnemyContact2" parent="Enemy" instance=ExtResource("5_mowys")]
 position = Vector2(518, 307)
 color = 1
-damage = 10
-attack_range = 200.0
-life = 10
 
 [node name="HUD" parent="." instance=ExtResource("7_vfnx0")]
 

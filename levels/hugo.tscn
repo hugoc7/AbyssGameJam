@@ -6,8 +6,8 @@
 [ext_resource type="Script" path="res://background/background.gd" id="3_cer8s"]
 [ext_resource type="Texture2D" uid="uid://chskkiuolcqd6" path="res://background/bkg_dark.tres" id="4_uiwq1"]
 [ext_resource type="PackedScene" uid="uid://ck8o5v52wgvf6" path="res://player/player.tscn" id="5_d21w1"]
-[ext_resource type="PackedScene" uid="uid://cbe8prr8x1r0m" path="res://enemy/enemy_contact.tscn" id="6_l8te7"]
-[ext_resource type="PackedScene" uid="uid://85ag7xxy5r67" path="res://hud.tscn" id="7_pvkj3"]
+[ext_resource type="PackedScene" uid="uid://cbe8prr8x1r0m" path="res://enemy/contact/enemy_contact.tscn" id="6_l8te7"]
+[ext_resource type="PackedScene" uid="uid://85ag7xxy5r67" path="res://hud/hud.tscn" id="7_pvkj3"]
 [ext_resource type="Script" path="res://camera/camera.gd" id="8_s1ufl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w26nm"]
