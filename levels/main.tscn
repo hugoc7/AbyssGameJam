@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://dfj3b7cqiibqm"]
+[gd_scene load_steps=4 format=3 uid="uid://dfj3b7cqiibqm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w26nm"]
+size = Vector2(1152, 43)
+
+[sub_resource type="Gradient" id="Gradient_p06mu"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gf473"]
+gradient = SubResource("Gradient_p06mu")
 
 [node name="Main" type="Node2D"]
+
+[node name="Sol" type="StaticBody2D" parent="."]
+position = Vector2(577, 617.5)
+
+[node name="Collider" type="CollisionShape2D" parent="Sol"]
+shape = SubResource("RectangleShape2D_w26nm")
+debug_color = Color(0.572549, 0.454902, 0.823529, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sol"]
+scale = Vector2(4.49609, 43)
+texture = SubResource("GradientTexture1D_gf473")
