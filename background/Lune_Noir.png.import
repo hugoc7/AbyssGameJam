@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf7wisyfoabxb"
-path="res://.godot/imported/Fireball_Noir.png-dcc878d4026ab014c5727bf48aa99906.ctex"
+uid="uid://ccv7aask0atan"
+path="res://.godot/imported/Lune_Noir.png-477bf66b2e66abb659f61c88a18dc41f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy/Fireball_Noir.png"
-dest_files=["res://.godot/imported/Fireball_Noir.png-dcc878d4026ab014c5727bf48aa99906.ctex"]
+source_file="res://background/Lune_Noir.png"
+dest_files=["res://.godot/imported/Lune_Noir.png-477bf66b2e66abb659f61c88a18dc41f.ctex"]
 
 [params]
 

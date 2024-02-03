@@ -1,0 +1,168 @@
+[gd_scene load_steps=18 format=3 uid="uid://c585y8cnjdvlx"]
+
+[ext_resource type="Texture2D" uid="uid://dupg7nlgpy05o" path="res://background/Background_Blanc.png" id="1_lhbin"]
+[ext_resource type="Texture2D" uid="uid://bh7gny0jc8oov" path="res://background/Background_Noir.png" id="1_vn8eq"]
+[ext_resource type="Texture2D" uid="uid://cj5qks436wjqt" path="res://enemy/Zombie_Noir.png" id="2_fabu6"]
+[ext_resource type="Texture2D" uid="uid://04k2v4omn6ya" path="res://background/Grass.png" id="3_y0wno"]
+[ext_resource type="PackedScene" uid="uid://ck8o5v52wgvf6" path="res://player/player.tscn" id="4_4druo"]
+[ext_resource type="Script" path="res://camera/camera.gd" id="5_50po3"]
+[ext_resource type="Texture2D" uid="uid://bnentgq61y31b" path="res://background/Tree.png" id="5_mxaap"]
+[ext_resource type="Texture2D" uid="uid://b8k5j70x0rf41" path="res://player/Character_Noir.png" id="7_d7a6n"]
+[ext_resource type="Texture2D" uid="uid://bdtdr4vcgseu0" path="res://player/Character_Blanc.png" id="8_mj45m"]
+[ext_resource type="Texture2D" uid="uid://es2hpcvacav8" path="res://enemy/Bat_Noir.png" id="9_6384y"]
+[ext_resource type="Texture2D" uid="uid://ipvh1uvbtbqm" path="res://enemy/Zombie_Blanc.png" id="10_iqmj7"]
+[ext_resource type="Texture2D" uid="uid://4ulhgtsqt61w" path="res://enemy/Bat_Blanc.png" id="11_jvaxy"]
+[ext_resource type="Texture2D" uid="uid://pvl07icxk82o" path="res://Fireball_Blanc.png" id="12_sfqrq"]
+[ext_resource type="Texture2D" uid="uid://3t6guphn0vuh" path="res://Fireball_Noir.png" id="13_ccedn"]
+[ext_resource type="Texture2D" uid="uid://cju2e3xitswtc" path="res://background/Lune_Blanche.png" id="14_16do7"]
+[ext_resource type="Texture2D" uid="uid://ccv7aask0atan" path="res://background/Lune_Noir.png" id="15_6exei"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iwayb"]
+load_path = "res://.godot/imported/Background_Test.png-58c422c02a00692ab18dc6beb687c6ec.ctex"
+
+[node name="DamienScene" type="Node2D"]
+
+[node name="BackgroundTest" type="Sprite2D" parent="."]
+position = Vector2(1977, 411)
+scale = Vector2(5, 5)
+texture = ExtResource("1_vn8eq")
+
+[node name="BackgroundBlanc" type="Sprite2D" parent="."]
+position = Vector2(-582, 411)
+scale = Vector2(5, 5)
+texture = ExtResource("1_lhbin")
+
+[node name="BackgroundBlanc" type="Sprite2D" parent="BackgroundBlanc"]
+position = Vector2(0, -128)
+texture = ExtResource("1_lhbin")
+
+[node name="BackgroundTest2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-583, 414)
+scale = Vector2(5, 5)
+texture = SubResource("CompressedTexture2D_iwayb")
+
+[node name="LuneBlanche" type="Sprite2D" parent="."]
+position = Vector2(852, 236)
+scale = Vector2(5, 5)
+texture = ExtResource("14_16do7")
+
+[node name="LuneNoir" type="Sprite2D" parent="."]
+position = Vector2(583, 232)
+scale = Vector2(5, 5)
+texture = ExtResource("15_6exei")
+
+[node name="Tree" type="Sprite2D" parent="."]
+position = Vector2(953, 456)
+scale = Vector2(5, 5)
+texture = ExtResource("5_mxaap")
+
+[node name="Tree" type="Sprite2D" parent="Tree"]
+position = Vector2(-84.8, 0)
+texture = ExtResource("5_mxaap")
+
+[node name="ZombieNoir" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(516, 591)
+scale = Vector2(5, 5)
+texture = ExtResource("2_fabu6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(160, 750)
+scale = Vector2(5, 5)
+
+[node name="Grass" type="Sprite2D" parent="StaticBody2D"]
+texture_filter = 1
+position = Vector2(-32, -1.52588e-05)
+texture = ExtResource("3_y0wno")
+
+[node name="Grass2" type="Sprite2D" parent="StaticBody2D/Grass"]
+texture_filter = 1
+position = Vector2(32, 1.52588e-05)
+texture = ExtResource("3_y0wno")
+
+[node name="Grass2" type="Sprite2D" parent="StaticBody2D/Grass/Grass2"]
+texture_filter = 1
+position = Vector2(32, 0)
+texture = ExtResource("3_y0wno")
+
+[node name="Grass2" type="Sprite2D" parent="StaticBody2D/Grass/Grass2/Grass2"]
+texture_filter = 1
+position = Vector2(32, 0)
+texture = ExtResource("3_y0wno")
+
+[node name="Grass2" type="Sprite2D" parent="StaticBody2D/Grass/Grass2/Grass2/Grass2"]
+texture_filter = 1
+position = Vector2(32, 0)
+texture = ExtResource("3_y0wno")
+
+[node name="Grass2" type="Sprite2D" parent="StaticBody2D/Grass/Grass2/Grass2/Grass2/Grass2"]
+texture_filter = 1
+position = Vector2(32, 0)
+texture = ExtResource("3_y0wno")
+
+[node name="Grass2" type="Sprite2D" parent="StaticBody2D/Grass/Grass2/Grass2/Grass2/Grass2/Grass2"]
+texture_filter = 1
+position = Vector2(32, 0)
+texture = ExtResource("3_y0wno")
+
+[node name="Grass2" type="Sprite2D" parent="StaticBody2D/Grass/Grass2/Grass2/Grass2/Grass2/Grass2/Grass2"]
+texture_filter = 1
+position = Vector2(32, 0)
+texture = ExtResource("3_y0wno")
+
+[node name="Grass2" type="Sprite2D" parent="StaticBody2D/Grass/Grass2/Grass2/Grass2/Grass2/Grass2/Grass2/Grass2"]
+texture_filter = 1
+position = Vector2(32, 0)
+texture = ExtResource("3_y0wno")
+
+[node name="Grass2" type="Sprite2D" parent="StaticBody2D/Grass/Grass2/Grass2/Grass2/Grass2/Grass2/Grass2/Grass2/Grass2"]
+texture_filter = 1
+position = Vector2(32, 0)
+texture = ExtResource("3_y0wno")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+polygon = PackedVector2Array(-49.4, 15.6, -49.4, -15.8, 271.4, -15.4, 271.4, 15.2)
+
+[node name="Player" parent="." instance=ExtResource("4_4druo")]
+position = Vector2(51, 545)
+
+[node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("5_50po3")
+target = NodePath("../Player")
+
+[node name="CharacterNoir" type="Sprite2D" parent="."]
+position = Vector2(383, 512)
+scale = Vector2(5, 5)
+texture = ExtResource("7_d7a6n")
+
+[node name="CharacterBlanc" type="Sprite2D" parent="."]
+position = Vector2(800, 510)
+scale = Vector2(5, 5)
+texture = ExtResource("8_mj45m")
+
+[node name="BatNoir" type="Sprite2D" parent="."]
+position = Vector2(541, 475)
+scale = Vector2(5, 5)
+texture = ExtResource("9_6384y")
+
+[node name="ZombieBlanc" type="Sprite2D" parent="."]
+position = Vector2(965, 592)
+scale = Vector2(5, 5)
+texture = ExtResource("10_iqmj7")
+
+[node name="BatBlanc" type="Sprite2D" parent="."]
+position = Vector2(918, 484)
+scale = Vector2(5, 5)
+texture = ExtResource("11_jvaxy")
+
+[node name="FireballBlanc" type="Sprite2D" parent="."]
+position = Vector2(1023, 486)
+scale = Vector2(5, 5)
+texture = ExtResource("12_sfqrq")
+
+[node name="FireballNoir2" type="Sprite2D" parent="."]
+position = Vector2(638, 481)
+scale = Vector2(5, 5)
+texture = ExtResource("13_ccedn")
