@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Enums="*res://singletons/enums.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 debug_switch_level_color={

@@ -58,6 +58,7 @@ color = 1
 [node name="HUD" parent="." instance=ExtResource("7_vfnx0")]
 
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+offset = Vector2(0, -200)
 script = ExtResource("7_odr88")
 target = NodePath("../Player")
 
