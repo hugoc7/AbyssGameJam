@@ -63,17 +63,22 @@ position = Vector2(136, 489)
 [node name="Enemy" type="Node" parent="."]
 
 [node name="EnemyContactW" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_w0fgk")]
-position = Vector2(1798, 1161)
+position = Vector2(1492, 494)
 player = NodePath("../../Player")
 
 [node name="EnemyContactB" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_w0fgk")]
-position = Vector2(2023, 1162)
+position = Vector2(1793, 503)
 color = 1
 player = NodePath("../../Player")
 
 [node name="EnemyBatW" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_anlvf")]
 position = Vector2(574, 546)
 player = NodePath("../../Player")
+
+[node name="EnemyBatB" parent="Enemy/EnemyBatW" node_paths=PackedStringArray("player") instance=ExtResource("8_anlvf")]
+position = Vector2(197, -66)
+color = 1
+player = NodePath("../../../Player")
 
 [node name="HUD" parent="." instance=ExtResource("8_kfuhu")]
 

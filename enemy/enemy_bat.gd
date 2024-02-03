@@ -7,14 +7,15 @@ class_name EnemyBat
 @export var white_texture : Texture2D = null
 @export var black_texture : Texture2D = null
 @export var player : Node2D = null
-const purchase_distance = Vector2(200,900) # (min, max)
+const purchase_distance = Vector2(250,1200) # (min, max)
 @export var speed : float = 50.0
+const y_speed: float = 5
 @export var damage : int = 10
 @export var attack_range : float = 200
 
 var is_in_cooldown = false
 
-const turnaround_cooldown_duration : float = 3
+const turnaround_cooldown_duration : float = 5
 var turnaround_timer : SceneTreeTimer = null
 
 
@@ -43,34 +44,22 @@ func _process(delta):
 		return
 	var sqr_dist_to_player = global_position.distance_squared_to(player.position)
 	if sqr_dist_to_player < purchase_distance.y * purchase_distance.y:
-		print_debug(sqrt(sqr_dist_to_player)," ", purchase_distance.y," ", purchase_distance.x," ",turnaround_timer.time_left)
+		#print_debug(sqrt(sqr_dist_to_player)," ", purchase_distance.y," ", purchase_distance.x," ",turnaround_timer.time_left)
 		if sqr_dist_to_player < purchase_distance.x * purchase_distance.x:
-				print_debug("in minimum")
 				turnaround_timer = get_tree().create_timer(turnaround_cooldown_duration)
 
 		if turnaround_timer.time_left != 0: # no cooldown, chase
-			print_debug("evade")
 			var direction = sign(global_position.x - player.global_position.x)
 			global_position.x += direction * speed * delta
 			$Sprite2D.scale.x = direction * abs($Sprite2D.scale.x)			
 		else: # cooldown, evade
-			print_debug("chase")
 			var direction = sign(player.global_position.x - global_position.x)
 
 			global_position.x += direction * speed * delta
 			$Sprite2D.scale.x = direction * abs($Sprite2D.scale.x)
-
-		#if sqr_dist_to_player > purchase_distance.x * purchase_distance.x and turnaround_timer.time_left == 0:
-			#var direction = sign(player.global_position.x - global_position.x)
-			#global_position.x += direction * speed * delta
-			##if $Sprite2D.scale.x * direction < 0:
-			#$Sprite2D.scale.x = direction * abs($Sprite2D.scale.x)
-		#else:
-			#if turnaround_timer.time_left == 0:
-				#turnaround_timer = get_tree().create_timer(turnaround_cooldown_duration)
-			#var direction = sign(global_position.x - player.global_position.x)
-			#global_position.x += direction * speed * delta
-			#$Sprite2D.scale.x = direction * abs($Sprite2D.scale.x)
+		
+		global_position.y += y_speed * delta * (abs(int(global_position.x) % 100 - 50)-25)
+		
 			
 	if sqr_dist_to_player < attack_range*attack_range and not is_in_cooldown:
 		_damage_player()
