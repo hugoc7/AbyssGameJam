@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4yhk5o1gop6"]
+[gd_scene load_steps=14 format=3 uid="uid://b4yhk5o1gop6"]
 
 [ext_resource type="Script" path="res://game_manager/game_manager.gd" id="1_tdwjc"]
 [ext_resource type="Texture2D" uid="uid://dl4qnp8j0q2fs" path="res://background/bkg_light.tres" id="2_daf2r"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ck8o5v52wgvf6" path="res://player/player.tscn" id="5_d21w1"]
 [ext_resource type="PackedScene" uid="uid://cbe8prr8x1r0m" path="res://enemy/contact/enemy_contact.tscn" id="6_l8te7"]
 [ext_resource type="PackedScene" uid="uid://85ag7xxy5r67" path="res://hud/hud.tscn" id="7_pvkj3"]
+[ext_resource type="PackedScene" uid="uid://ndaq34x515wt" path="res://projectiles/fireball.tscn" id="8_gxraj"]
 [ext_resource type="Script" path="res://camera/camera.gd" id="8_s1ufl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w26nm"]
@@ -59,6 +60,9 @@ player = NodePath("../../Player")
 position = Vector2(931, 508)
 color = 1
 player = NodePath("../../Player")
+
+[node name="Fireball" parent="." instance=ExtResource("8_gxraj")]
+position = Vector2(652, 430)
 
 [node name="HUD" parent="." instance=ExtResource("7_pvkj3")]
 

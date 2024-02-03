@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ndaq34x515wt"]
+
+[ext_resource type="Texture2D" uid="uid://pvl07icxk82o" path="res://projectiles/Fireball_Blanc.png" id="1_usawb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8xrtc"]
+radius = 16.0
+height = 68.0
+
+[node name="Fireball" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_8xrtc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_usawb")

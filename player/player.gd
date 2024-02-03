@@ -5,12 +5,16 @@ signal life_changed(new_value: int)
 @export var speed = 300.0
 @export var jump_velocity = -400.0
 @export var damage : int = 10
+@export var fireball : PackedScene
+@export var fireball_speed = 100.0
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var life = 100
 var is_short_attack_on_cooldown = false
+var is_range_attack_on_cooldown = false
+
 
 func take_damage(damage: int):
 	life -= damage
@@ -19,7 +23,7 @@ func take_damage(damage: int):
 	emit_signal("life_changed", life)
 	
 func short_attack():
-	var other_areas: Array[Area2D] = $AttackArea.get_overlapping_areas()
+	var other_areas: Array[Area2D] = $Body/AttackArea.get_overlapping_areas()
 	print_debug("player short atk")	
 	is_short_attack_on_cooldown = true
 	$ShortAttackCooldownTimer.start()
@@ -31,6 +35,14 @@ func short_attack():
 	for area in other_areas:
 		if area.has_method("take_damage"):
 			area.take_damage(damage)
+			
+func range_attack():
+	var fireball_instance = fireball.instantiate()
+	fireball_instance.global_position = $Body/ProjectileSpawn.global_position
+	get_parent().add_child(fireball_instance)
+	var direction = global_position.direction_to(get_global_mouse_position()) 
+	fireball_instance.apply_impulse(direction*fireball_speed)
+	
 	
 func reset_short_attack_cooldown():
 	is_short_attack_on_cooldown = false
@@ -54,7 +66,7 @@ func _physics_process(delta):
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * speed
-		$Sprite2D.scale.x = sign(direction) * abs($Sprite2D.scale.x)
+		$Body.scale.x = sign(direction)
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
@@ -63,5 +75,7 @@ func _physics_process(delta):
 func _unhandled_input(event):
 	if event.is_action_pressed("attack_short") and not is_short_attack_on_cooldown:
 		$ShortAttackTimer.start()
+	if event.is_action_pressed("attack_range") and not is_range_attack_on_cooldown:
+		range_attack()
 	if event is InputEventMouseMotion:
 		var mouse = get_global_mouse_position()
