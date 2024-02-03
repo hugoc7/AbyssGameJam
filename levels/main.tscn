@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfj3b7cqiibqm"]
+[gd_scene load_steps=5 format=3 uid="uid://dfj3b7cqiibqm"]
+
+[ext_resource type="PackedScene" uid="uid://ck8o5v52wgvf6" path="res://player/player.tscn" id="1_i6v4o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w26nm"]
 size = Vector2(1152, 43)
@@ -20,3 +22,6 @@ debug_color = Color(0.572549, 0.454902, 0.823529, 0.419608)
 [node name="Sprite2D" type="Sprite2D" parent="Sol"]
 scale = Vector2(4.49609, 43)
 texture = SubResource("GradientTexture1D_gf473")
+
+[node name="Player" parent="." instance=ExtResource("1_i6v4o")]
+position = Vector2(136, 489)
