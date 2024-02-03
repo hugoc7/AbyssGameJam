@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfj3b7cqiibqm"]
+[gd_scene load_steps=12 format=3 uid="uid://dfj3b7cqiibqm"]
 
 [ext_resource type="Script" path="res://game_manager/game_manager.gd" id="1_et40t"]
 [ext_resource type="Texture2D" uid="uid://dl4qnp8j0q2fs" path="res://background/bkg_light.tres" id="1_sc2p4"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ck8o5v52wgvf6" path="res://player/player.tscn" id="4_4egl6"]
 [ext_resource type="PackedScene" uid="uid://cbe8prr8x1r0m" path="res://enemy/enemy_contact.tscn" id="5_mowys"]
 [ext_resource type="Script" path="res://camera/camera.gd" id="7_odr88"]
+[ext_resource type="PackedScene" uid="uid://85ag7xxy5r67" path="res://hud.tscn" id="7_vfnx0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w26nm"]
 size = Vector2(1152, 43)
@@ -54,6 +55,11 @@ position = Vector2(843, 262)
 position = Vector2(518, 307)
 color = 1
 
+[node name="HUD" parent="." instance=ExtResource("7_vfnx0")]
+
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+offset = Vector2(0, -200)
 script = ExtResource("7_odr88")
 target = NodePath("../Player")
+
+[connection signal="life_changed" from="Player" to="HUD" method="_on_player_life_changed"]

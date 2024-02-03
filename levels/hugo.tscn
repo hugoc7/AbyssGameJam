@@ -1,0 +1,73 @@
+[gd_scene load_steps=13 format=3 uid="uid://b4yhk5o1gop6"]
+
+[ext_resource type="Script" path="res://game_manager/game_manager.gd" id="1_tdwjc"]
+[ext_resource type="Texture2D" uid="uid://dl4qnp8j0q2fs" path="res://background/bkg_light.tres" id="2_daf2r"]
+[ext_resource type="PackedScene" uid="uid://bmul6447vnsfc" path="res://menu/main_menu.tscn" id="2_gjmx3"]
+[ext_resource type="Script" path="res://background/background.gd" id="3_cer8s"]
+[ext_resource type="Texture2D" uid="uid://chskkiuolcqd6" path="res://background/bkg_dark.tres" id="4_uiwq1"]
+[ext_resource type="PackedScene" uid="uid://ck8o5v52wgvf6" path="res://player/player.tscn" id="5_d21w1"]
+[ext_resource type="PackedScene" uid="uid://cbe8prr8x1r0m" path="res://enemy/enemy_contact.tscn" id="6_l8te7"]
+[ext_resource type="PackedScene" uid="uid://85ag7xxy5r67" path="res://hud.tscn" id="7_pvkj3"]
+[ext_resource type="Script" path="res://camera/camera.gd" id="8_s1ufl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w26nm"]
+size = Vector2(1152, 43)
+
+[sub_resource type="Gradient" id="Gradient_p06mu"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gf473"]
+gradient = SubResource("Gradient_p06mu")
+
+[node name="HUgo" type="Node2D"]
+script = ExtResource("1_tdwjc")
+main_menu = ExtResource("2_gjmx3")
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(120, 390)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(575, 320.764)
+rotation = 1.5708
+scale = Vector2(2.52317, 1152.3)
+texture = ExtResource("2_daf2r")
+script = ExtResource("3_cer8s")
+dark_texture = ExtResource("4_uiwq1")
+light_texture = ExtResource("2_daf2r")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(577, 617.5)
+
+[node name="Collider" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_w26nm")
+debug_color = Color(0.572549, 0.454902, 0.823529, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+scale = Vector2(4.49609, 43)
+texture = SubResource("GradientTexture1D_gf473")
+
+[node name="Player" parent="." instance=ExtResource("5_d21w1")]
+position = Vector2(136, 489)
+
+[node name="Enemy" type="Node" parent="."]
+
+[node name="EnemyContact" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("6_l8te7")]
+position = Vector2(461, 508)
+player = NodePath("../../Player")
+damage = 10
+attack_range = 200.0
+
+[node name="EnemyContact2" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("6_l8te7")]
+position = Vector2(931, 508)
+color = 1
+player = NodePath("../../Player")
+damage = 10
+attack_range = 200.0
+
+[node name="HUD" parent="." instance=ExtResource("7_pvkj3")]
+
+[node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+offset = Vector2(0, -200)
+script = ExtResource("8_s1ufl")
+target = NodePath("../Player")
+
+[connection signal="life_changed" from="Player" to="HUD" method="_on_player_life_changed"]
