@@ -1,11 +1,13 @@
 extends Node
 
 @export var world_rect : Rect2 = Rect2(-2000, -2000, 4000, 4000)
+@export var main_menu : PackedScene = null
 
 
 signal level_color_state_changed(color: Enums.LightColor)
 
 var level_color_state = Enums.LightColor.WHITE
+
 
 func _switch_color():
 	if level_color_state == Enums.LightColor.WHITE:
@@ -15,14 +17,18 @@ func _switch_color():
 	$Background.update_color(level_color_state)
 	emit_signal("level_color_state_changed", level_color_state)
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	for enemy in $Enemy.get_children():
 		level_color_state_changed.connect(enemy._on_background_color_changed)
+	$Player.life_changed.connect(_on_life_changed)
+	
+	
+func _on_life_changed(life: int):
+	if life == 0:
+		get_tree().change_scene_to_packed(main_menu)
+	
 		
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("debug_switch_level_color"):
 		_switch_color()

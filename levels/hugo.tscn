@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4yhk5o1gop6"]
+[gd_scene load_steps=13 format=3 uid="uid://b4yhk5o1gop6"]
 
 [ext_resource type="Script" path="res://game_manager/game_manager.gd" id="1_tdwjc"]
 [ext_resource type="Texture2D" uid="uid://dl4qnp8j0q2fs" path="res://background/bkg_light.tres" id="2_daf2r"]
+[ext_resource type="PackedScene" uid="uid://bmul6447vnsfc" path="res://menu/main_menu.tscn" id="2_gjmx3"]
 [ext_resource type="Script" path="res://background/background.gd" id="3_cer8s"]
 [ext_resource type="Texture2D" uid="uid://chskkiuolcqd6" path="res://background/bkg_dark.tres" id="4_uiwq1"]
 [ext_resource type="PackedScene" uid="uid://ck8o5v52wgvf6" path="res://player/player.tscn" id="5_d21w1"]
@@ -19,6 +20,7 @@ gradient = SubResource("Gradient_p06mu")
 
 [node name="HUgo" type="Node2D"]
 script = ExtResource("1_tdwjc")
+main_menu = ExtResource("2_gjmx3")
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
 position = Vector2(120, 390)
@@ -49,13 +51,17 @@ position = Vector2(136, 489)
 [node name="Enemy" type="Node" parent="."]
 
 [node name="EnemyContact" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("6_l8te7")]
-position = Vector2(880, 532)
+position = Vector2(461, 508)
 player = NodePath("../../Player")
+damage = 10
+attack_range = 200.0
 
 [node name="EnemyContact2" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("6_l8te7")]
-position = Vector2(552, 524)
+position = Vector2(931, 508)
 color = 1
 player = NodePath("../../Player")
+damage = 10
+attack_range = 200.0
 
 [node name="HUD" parent="." instance=ExtResource("7_pvkj3")]
 
