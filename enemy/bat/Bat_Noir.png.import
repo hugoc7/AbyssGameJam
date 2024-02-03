@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pvl07icxk82o"
-path="res://.godot/imported/Fireball_Blanc.png-fcfc5d79cbbe40774c430a4524429243.ctex"
+uid="uid://es2hpcvacav8"
+path="res://.godot/imported/Bat_Noir.png-37bcce39881cc1e110403948d13b2608.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fireball_Blanc.png"
-dest_files=["res://.godot/imported/Fireball_Blanc.png-fcfc5d79cbbe40774c430a4524429243.ctex"]
+source_file="res://enemy/bat/Bat_Noir.png"
+dest_files=["res://.godot/imported/Bat_Noir.png-37bcce39881cc1e110403948d13b2608.ctex"]
 
 [params]
 

@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbe8prr8x1r0m"]
+
+[ext_resource type="Script" path="res://enemy/contact/enemy_contact.gd" id="1_51gnd"]
+[ext_resource type="Texture2D" uid="uid://cj5qks436wjqt" path="res://enemy/contact/Zombie_Noir.png" id="3_gj8y7"]
+[ext_resource type="Texture2D" uid="uid://ipvh1uvbtbqm" path="res://enemy/contact/Zombie_Blanc.png" id="4_a1kmb"]
+[ext_resource type="PackedScene" uid="uid://dqgwffom65lvd" path="res://visual_effects/explosion.tscn" id="4_wrjxc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_okoi0"]
+radius = 44.0
+height = 102.0
+
+[sub_resource type="Gradient" id="Gradient_auxh5"]
+colors = PackedColorArray(1, 1, 0.317647, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d5qto"]
+gradient = SubResource("Gradient_auxh5")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.883621, 0.211207)
+
+[node name="EnemyContact" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_51gnd")
+white_texture = ExtResource("4_a1kmb")
+black_texture = ExtResource("3_gj8y7")
+die_vfx = ExtResource("4_wrjxc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 14)
+shape = SubResource("CapsuleShape2D_okoi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_a1kmb")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="CooldownTimer"]
+scale = Vector2(0.490234, 1)
+energy = 3.45
+texture = SubResource("GradientTexture2D_d5qto")
+texture_scale = 2.8
+height = 100.0

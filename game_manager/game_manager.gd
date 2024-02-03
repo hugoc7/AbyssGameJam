@@ -30,7 +30,7 @@ func _on_life_changed(life: int):
 		
 
 func _process(delta):
-	if Input.is_action_just_pressed("debug_switch_level_color"):
+	if Input.is_action_just_pressed("switch_level_color"):
 		_switch_color()
 		
 	# si le joueur sort du monde on le remet au spawn

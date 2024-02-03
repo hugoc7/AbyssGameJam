@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj5qks436wjqt"
-path="res://.godot/imported/Zombie_Noir.png-998b9865fe2eb8d5169909176930f62d.ctex"
+uid="uid://pvl07icxk82o"
+path="res://.godot/imported/Fireball_Blanc.png-9ff2e610914a11926919d999680b12c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy/Zombie_Noir.png"
-dest_files=["res://.godot/imported/Zombie_Noir.png-998b9865fe2eb8d5169909176930f62d.ctex"]
+source_file="res://projectiles/Fireball_Blanc.png"
+dest_files=["res://.godot/imported/Fireball_Blanc.png-9ff2e610914a11926919d999680b12c9.ctex"]
 
 [params]
 

@@ -1,19 +1,62 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck8o5v52wgvf6"]
+[gd_scene load_steps=9 format=3 uid="uid://ck8o5v52wgvf6"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_esoqt"]
-[ext_resource type="Texture2D" uid="uid://b2uelpqirx0bl" path="res://icon.svg" id="1_v26xu"]
+[ext_resource type="Texture2D" uid="uid://bdtdr4vcgseu0" path="res://player/Character_Blanc.png" id="2_ibxpq"]
+[ext_resource type="AudioStream" uid="uid://ddotwbuosivqa" path="res://player/sound/miss_sword1.mp3" id="3_kixs8"]
+[ext_resource type="AudioStream" uid="uid://cv4rtym8v74mt" path="res://player/sound/sword_hit1.mp3" id="4_b1xjc"]
+
+[sub_resource type="Gradient" id="Gradient_o247o"]
+colors = PackedColorArray(1, 1, 0.317647, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_isls0"]
+gradient = SubResource("Gradient_o247o")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.883621, 0.211207)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2jslw"]
-radius = 55.0
-height = 164.0
+radius = 41.0
+height = 234.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7urbb"]
+size = Vector2(282.418, 171)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_esoqt")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+scale = Vector2(0.490234, 1)
+energy = 1.16
+texture = SubResource("GradientTexture2D_isls0")
+texture_scale = 5.0
+height = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_2jslw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.8125, 1.21875)
-texture = ExtResource("1_v26xu")
+position = Vector2(3, -88)
+scale = Vector2(4.0625, 6.09375)
+texture = ExtResource("2_ibxpq")
+
+[node name="AttackArea" type="Area2D" parent="."]
+scale = Vector2(0.490234, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(193.325, -2.5)
+shape = SubResource("RectangleShape2D_7urbb")
+
+[node name="ShortAttackTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="ShortAttackCooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SwordMissSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kixs8")
+
+[node name="SwordHitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_b1xjc")
