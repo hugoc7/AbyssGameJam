@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ck8o5v52wgvf6"]
+[gd_scene load_steps=9 format=3 uid="uid://ck8o5v52wgvf6"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_esoqt"]
 [ext_resource type="Texture2D" uid="uid://bdtdr4vcgseu0" path="res://player/Character_Blanc.png" id="2_ibxpq"]
+[ext_resource type="AudioStream" uid="uid://ddotwbuosivqa" path="res://player/sound/miss_sword1.mp3" id="3_kixs8"]
+[ext_resource type="AudioStream" uid="uid://cv4rtym8v74mt" path="res://player/sound/sword_hit1.mp3" id="4_b1xjc"]
 
 [sub_resource type="Gradient" id="Gradient_o247o"]
 colors = PackedColorArray(1, 1, 0.317647, 1, 0, 0, 0, 1)
@@ -45,3 +47,16 @@ scale = Vector2(0.490234, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(193.325, -2.5)
 shape = SubResource("RectangleShape2D_7urbb")
+
+[node name="ShortAttackTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="ShortAttackCooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SwordMissSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kixs8")
+
+[node name="SwordHitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_b1xjc")

@@ -52,12 +52,14 @@ position = Vector2(136, 489)
 position = Vector2(843, 262)
 damage = 10
 attack_range = 200.0
+life = 200
 
 [node name="EnemyContact2" parent="Enemy" instance=ExtResource("5_mowys")]
 position = Vector2(518, 307)
 color = 1
 damage = 10
 attack_range = 200.0
+life = 10
 
 [node name="HUD" parent="." instance=ExtResource("7_vfnx0")]
 

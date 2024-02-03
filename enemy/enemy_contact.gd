@@ -11,8 +11,18 @@ class_name EnemyContact
 @export var speed : float = 50.0
 @export var damage : int = 10
 @export var attack_range : float = 200
+@export var life = 10
 
 var is_in_cooldown = false
+
+func take_damage(damage: int):
+	life -= damage
+	if life < 0:
+		life = 0
+		die()
+		
+func die():
+	queue_free()
 
 func _ready():
 	if color == Enums.LightColor.WHITE:

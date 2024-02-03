@@ -22,8 +22,6 @@ texture_filter = 1
 script = ExtResource("1_51gnd")
 white_texture = ExtResource("4_a1kmb")
 black_texture = ExtResource("3_gj8y7")
-damage = null
-attack_range = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 14)
