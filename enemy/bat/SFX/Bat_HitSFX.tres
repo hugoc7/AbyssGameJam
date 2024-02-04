@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=3 format=3 uid="uid://ou4ubgxt1k5"]
+
+[ext_resource type="AudioStream" uid="uid://ry1kvc0d5x5d" path="res://enemy/bat/SFX/Bat_HitSFX1.wav" id="1_q13k6"]
+[ext_resource type="AudioStream" uid="uid://df84s5x3yy4t5" path="res://enemy/bat/SFX/Bat_HitSFX2.wav" id="2_s8v3y"]
+
+[resource]
+streams_count = 2
+stream_0/stream = ExtResource("1_q13k6")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_s8v3y")
+stream_1/weight = 1.0

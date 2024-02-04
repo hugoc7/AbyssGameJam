@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkdfa3qyl3g7c"]
+[gd_scene load_steps=10 format=3 uid="uid://dkdfa3qyl3g7c"]
 
 [ext_resource type="Script" path="res://enemy/bat/enemy_bat.gd" id="1_ncxyc"]
 [ext_resource type="Texture2D" uid="uid://4ulhgtsqt61w" path="res://enemy/bat/Bat_Blanc.png" id="2_dxwi3"]
 [ext_resource type="Texture2D" uid="uid://es2hpcvacav8" path="res://enemy/bat/Bat_Noir.png" id="3_kqqdt"]
 [ext_resource type="PackedScene" uid="uid://dqgwffom65lvd" path="res://visual_effects/explosion.tscn" id="4_334tj"]
 [ext_resource type="PackedScene" uid="uid://ndaq34x515wt" path="res://projectiles/fireball.tscn" id="5_8l3cg"]
+[ext_resource type="SpriteFrames" uid="uid://d4f23b4mwifo0" path="res://enemy/bat/Animations/Bat_SpriteFrame.tres" id="6_8jjv0"]
+[ext_resource type="AudioStream" uid="uid://sf715v61kf1c" path="res://enemy/bat/SFX/Bat_DeathSFX.wav" id="6_awqjv"]
+[ext_resource type="AudioStream" uid="uid://ou4ubgxt1k5" path="res://enemy/bat/SFX/Bat_HitSFX.tres" id="6_r85lc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_okoi0"]
 radius = 22.0
@@ -27,16 +30,22 @@ position = Vector2(-3, -2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_okoi0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-scale = Vector2(4, 4)
-texture = ExtResource("2_dxwi3")
-
 [node name="CooldownTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="AttackTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 2.0
 one_shot = true
+
+[node name="Hit_SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_r85lc")
+
+[node name="Death_SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_awqjv")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("6_8jjv0")
+animation = &"idle_white"
 
 [connection signal="timeout" from="AttackTimer" to="." method="fire_projectile"]

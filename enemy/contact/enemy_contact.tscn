@@ -591,7 +591,7 @@ shape = SubResource("CapsuleShape2D_okoi0")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_xi85a")
-animation = &"idle_white"
+animation = &"run_white"
 
 [node name="CooldownTimer" type="Timer" parent="."]
 one_shot = true

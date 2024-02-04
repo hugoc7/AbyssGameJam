@@ -19,16 +19,15 @@ var is_dying = false
 var color_as_text = "white" 
 @onready var sprite : AnimatedSprite2D = $Sprite
 
-func take_damage(damage: int):
+func take_damage(damage_taken: int):
 	set_animation("hit")
-	life -= damage
+	life -= damage_taken
 	if life < 0:
 		life = 0
 		die()
 	else:
 		$Hit_SFX.play()
-		print_debug("test")
-	
+
 func die():
 	set_animation("death")
 	$Death_SFX.play()
@@ -39,7 +38,6 @@ func die():
 
 func set_animation(anim: String):
 	sprite.animation = anim + "_" + color_as_text 
-		
 
 func _ready():
 	if color == Enums.LightColor.WHITE:
@@ -56,10 +54,10 @@ func _ready():
 	$CooldownTimer.timeout.connect(_on_cooldown_timeout)
 	$AttackTimer.timeout.connect(_attack_player)
 		
-	
+
 func _on_background_color_changed(bkg_color: Enums.LightColor):
 	sprite.visible = bkg_color != color
-	
+
 func _process(delta):
 	if player == null or is_dying:
 		return
@@ -68,13 +66,15 @@ func _process(delta):
 		if sqr_dist_to_player > purchase_distance.x * purchase_distance.x:
 			var direction = sign(player.global_position.x - global_position.x)
 			global_position.x += direction * speed * delta
+			set_animation("run")
 			#if $Sprite2D.scale.x * direction < 0:
 			sprite.scale.x = direction * abs(sprite.scale.x)
-	if sqr_dist_to_player < attack_range*attack_range and not is_in_cooldown:
-		is_in_cooldown = true
-		set_animation("atk")
-		$Effort_SFX.play()
-		$AttackTimer.start()
+		
+		if sqr_dist_to_player < attack_range*attack_range and not is_in_cooldown:
+			is_in_cooldown = true
+			set_animation("atk")
+			$Effort_SFX.play()
+			$AttackTimer.start()
 
 func _attack_player():
 	$CooldownTimer.start()	
@@ -85,7 +85,7 @@ func _attack_player():
 
 func _on_cooldown_timeout():
 	is_in_cooldown = false
-	
+
 func _on_sprite_animation_loop():
 	if is_dying:
 		queue_free()

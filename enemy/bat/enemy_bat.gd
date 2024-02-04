@@ -18,22 +18,34 @@ class_name EnemyBat
 @export var projectile_speed = 300.0
 @export var turnaround_cooldown_duration : float = 5
 
+var color_as_text = "white" 
+@onready var sprite : AnimatedSprite2D = $Sprite
+
 var is_in_cooldown = false
 
 var turnaround_timer : SceneTreeTimer = null
 
-func take_damage(damage):
-	life -= damage
+func take_damage(damage_taken):
+	set_animation("hit")
+	life -= damage_taken
 	if life <= 0:
 		die()
-		
+	else:
+		$Hit_SFX.play()
+
 func die():
+	set_animation("death")
 	queue_free()
+	$Death_SFX.play()
 	var explosion_instance = explosion_vfx.instantiate()
 	explosion_instance.position = position
 	get_parent().add_child(explosion_instance)
 
+func set_animation(anim: String):
+	sprite.animation = anim + "_" + color_as_text 
+
 func fire_projectile():
+	set_animation("atk")
 	var projectile_instance : Projectile = projectile.instantiate()
 	projectile_instance.damage = self.damage
 	projectile_instance.collision_layer = 5
@@ -43,15 +55,16 @@ func fire_projectile():
 
 func _ready():
 	if color == Enums.LightColor.WHITE:
-		$Sprite2D.set_texture(white_texture)
+		color_as_text = "white"
 	elif color == Enums.LightColor.BLACK:
-		$Sprite2D.set_texture(black_texture)
-		
+		color_as_text = "black"
+	set_animation("idle")
 	
 	if Engine.is_editor_hint():
 		set_process(false)
 		return
 	
+	sprite.play(sprite.animation)
 	turnaround_timer = get_tree().create_timer(0)
 	body_entered.connect(_on_body_entered)
 	$CooldownTimer.timeout.connect(_on_cooldown_timeout)
@@ -59,7 +72,7 @@ func _ready():
 	
 	
 func _on_background_color_changed(bkg_color: Enums.LightColor):
-	$Sprite2D.visible = bkg_color != color
+	sprite.visible = bkg_color != color
 	
 func _process(delta):
 	if player == null:
@@ -77,14 +90,14 @@ func _process(delta):
 		if turnaround_timer.time_left != 0: # no cooldown, chase
 			var direction = sign(global_position.x - player.global_position.x)
 			global_position.x += direction * speed * delta
-			$Sprite2D.scale.x = direction * abs($Sprite2D.scale.x)			
+			sprite.scale.x = direction * abs(sprite.scale.x)			
 		else: # cooldown, evade
 			var direction = sign(player.global_position.x - global_position.x)
 
 			global_position.x += direction * speed * delta
-			$Sprite2D.scale.x = direction * abs($Sprite2D.scale.x)
+			sprite.scale.x = direction * abs(sprite.scale.x)
 		
-		global_position.y += y_speed * delta * (abs(int(global_position.x) % 100 - 50)-25)
+		#global_position.y += y_speed * delta * (abs(int(global_position.x) % 100 - 50)-25)
 		
 			
 	if sqr_dist_to_player < attack_range*attack_range and not is_in_cooldown:
