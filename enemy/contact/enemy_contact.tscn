@@ -593,4 +593,8 @@ animation = &"idle_white"
 [node name="CooldownTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
 [connection signal="animation_looped" from="Sprite" to="." method="_on_sprite_animation_loop"]

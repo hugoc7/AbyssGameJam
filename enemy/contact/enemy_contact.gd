@@ -50,8 +50,8 @@ func _ready():
 	
 	sprite.play(sprite.animation)
 	$CooldownTimer.timeout.connect(_on_cooldown_timeout)
+	$AttackTimer.timeout.connect(_attack_player)
 		
-	
 	
 func _on_background_color_changed(bkg_color: Enums.LightColor):
 	sprite.visible = bkg_color != color
@@ -67,15 +67,16 @@ func _process(delta):
 			#if $Sprite2D.scale.x * direction < 0:
 			sprite.scale.x = direction * abs(sprite.scale.x)
 	if sqr_dist_to_player < attack_range*attack_range and not is_in_cooldown:
-		_damage_player()
 		is_in_cooldown = true
-		$CooldownTimer.start()
+		set_animation("atk")		
+		$AttackTimer.start()
 
-func _damage_player():
-	set_animation("atk")
+func _attack_player():
+	$CooldownTimer.start()	
 	if player == null:
 		return
-	player.take_damage(damage)
+	if global_position.distance_to(player.global_position) < attack_range:
+		player.take_damage(damage)
 
 func _on_cooldown_timeout():
 	is_in_cooldown = false
