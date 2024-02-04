@@ -50,20 +50,21 @@ texture = SubResource("GradientTexture1D_gf473")
 
 [node name="Player" parent="." instance=ExtResource("5_d21w1")]
 position = Vector2(136, 489)
-damage = 100
 
 [node name="Projectiles" type="Node" parent="."]
 
 [node name="Enemy" type="Node" parent="."]
 
 [node name="EnemyContact" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("6_l8te7")]
-position = Vector2(321, 508)
+position = Vector2(422, 519)
 player = NodePath("../../Player")
+life = 30
 
 [node name="EnemyContact2" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("6_l8te7")]
-position = Vector2(848, 506)
+position = Vector2(698, 505)
 color = 1
 player = NodePath("../../Player")
+life = 30
 
 [node name="HUD" parent="." instance=ExtResource("7_pvkj3")]
 
