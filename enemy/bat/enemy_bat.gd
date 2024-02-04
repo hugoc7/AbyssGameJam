@@ -9,7 +9,6 @@ class_name EnemyBat
 @export var player : Node2D = null
 @export var purchase_distance = Vector2(250,1200) # (min, max)
 @export var speed : float = 50.0
-@export var y_speed: float = 5
 @export var damage : int = 10
 @export var attack_range : float = 200
 @export var life = 100
@@ -17,6 +16,9 @@ class_name EnemyBat
 @export var projectile : PackedScene
 @export var projectile_speed = 300.0
 @export var turnaround_cooldown_duration : float = 5
+
+const x_oscilate_period:int = 100
+const y_speed: float = 150
 
 var color_as_text = "white" 
 @onready var sprite : AnimatedSprite2D = $Sprite
@@ -96,9 +98,9 @@ func _process(delta):
 
 			global_position.x += direction * speed * delta
 			sprite.scale.x = direction * abs(sprite.scale.x)
-		
-		#global_position.y += y_speed * delta * (abs(int(global_position.x) % 100 - 50)-25)
-		
+
+		global_position.y += y_speed * delta * (abs(abs(int(global_position.x) % x_oscilate_period) - x_oscilate_period/ 2 )-x_oscilate_period/4)/x_oscilate_period*4
+
 			
 	if sqr_dist_to_player < attack_range*attack_range and not is_in_cooldown:
 		_damage_player()
