@@ -15,6 +15,7 @@ class_name EnemyContact
 @export var die_vfx : PackedScene
 
 var is_in_cooldown = false
+@onready var sprite : AnimatedSprite2D = $Sprite
 
 func take_damage(damage: int):
 	life -= damage
@@ -30,21 +31,22 @@ func die():
 
 func _ready():
 	if color == Enums.LightColor.WHITE:
-		$Sprite2D.set_texture(white_texture)
+		sprite.animation = "idle_white"
 	elif color == Enums.LightColor.BLACK:
-		$Sprite2D.set_texture(black_texture)
+		sprite.animation = "idle_black"
 	
 	if Engine.is_editor_hint():
 		set_process(false)
 		return
 	
+	sprite.play()
 	body_entered.connect(_on_body_entered)
 	$CooldownTimer.timeout.connect(_on_cooldown_timeout)
 		
 	
 	
 func _on_background_color_changed(bkg_color: Enums.LightColor):
-	$Sprite2D.visible = bkg_color != color
+	sprite.visible = bkg_color != color
 	
 func _process(delta):
 	if player == null:
@@ -55,7 +57,7 @@ func _process(delta):
 			var direction = sign(player.global_position.x - global_position.x)
 			global_position.x += direction * speed * delta
 			#if $Sprite2D.scale.x * direction < 0:
-			$Sprite2D.scale.x = direction * abs($Sprite2D.scale.x)
+			sprite.scale.x = direction * abs(sprite.scale.x)
 	if sqr_dist_to_player < attack_range*attack_range and not is_in_cooldown:
 		_damage_player()
 		is_in_cooldown = true

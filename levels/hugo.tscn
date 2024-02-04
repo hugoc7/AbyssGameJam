@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4yhk5o1gop6"]
+[gd_scene load_steps=13 format=3 uid="uid://b4yhk5o1gop6"]
 
 [ext_resource type="Script" path="res://game_manager/game_manager.gd" id="1_tdwjc"]
 [ext_resource type="Texture2D" uid="uid://dl4qnp8j0q2fs" path="res://background/bkg_light.tres" id="2_daf2r"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://chskkiuolcqd6" path="res://background/bkg_dark.tres" id="4_uiwq1"]
 [ext_resource type="PackedScene" uid="uid://ck8o5v52wgvf6" path="res://player/player.tscn" id="5_d21w1"]
 [ext_resource type="PackedScene" uid="uid://cbe8prr8x1r0m" path="res://enemy/contact/enemy_contact.tscn" id="6_l8te7"]
-[ext_resource type="PackedScene" uid="uid://dkdfa3qyl3g7c" path="res://enemy/bat/enemy_bat.tscn" id="7_i3bic"]
 [ext_resource type="PackedScene" uid="uid://85ag7xxy5r67" path="res://hud/hud.tscn" id="7_pvkj3"]
 [ext_resource type="Script" path="res://camera/camera.gd" id="8_s1ufl"]
 
@@ -57,20 +56,12 @@ damage = 100
 
 [node name="Enemy" type="Node" parent="."]
 
-[node name="EnemyBat" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_i3bic")]
-position = Vector2(380, 338)
-player = NodePath("../../Player")
-
-[node name="EnemyBat2" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_i3bic")]
-position = Vector2(-1050, 210)
-player = NodePath("../../Player")
-
 [node name="EnemyContact" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("6_l8te7")]
-position = Vector2(461, 508)
+position = Vector2(321, 508)
 player = NodePath("../../Player")
 
 [node name="EnemyContact2" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("6_l8te7")]
-position = Vector2(931, 508)
+position = Vector2(848, 506)
 color = 1
 player = NodePath("../../Player")
 
