@@ -1,0 +1,14 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://8a43a8tg3dmk"]
+
+[ext_resource type="AudioStream" uid="uid://bku2ogv5vanh8" path="res://enemy/contact/SFX/Zombie_EffortSFX1.wav" id="1_10ene"]
+[ext_resource type="AudioStream" uid="uid://b8jpxva7x2wpy" path="res://enemy/contact/SFX/Zombie_EffortSFX2.wav" id="2_dnt6r"]
+[ext_resource type="AudioStream" uid="uid://s2trrom42nyy" path="res://enemy/contact/SFX/Zombie_EffortSFX3.wav" id="3_10fi8"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_10ene")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_dnt6r")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_10fi8")
+stream_2/weight = 1.0

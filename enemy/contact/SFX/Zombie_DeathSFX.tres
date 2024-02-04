@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=3 format=3 uid="uid://d0qhw2db81mnm"]
+
+[ext_resource type="AudioStream" uid="uid://bbc2r1gn1obd7" path="res://enemy/contact/SFX/Zombie_DeathSFX1.wav" id="1_pqk2d"]
+[ext_resource type="AudioStream" uid="uid://bucybkqdslxty" path="res://enemy/contact/SFX/Zombie_DeathSFX2.wav" id="2_i14jf"]
+
+[resource]
+streams_count = 2
+stream_0/stream = ExtResource("1_pqk2d")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_i14jf")
+stream_1/weight = 1.0

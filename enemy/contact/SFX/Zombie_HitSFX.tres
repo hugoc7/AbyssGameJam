@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=3 format=3 uid="uid://q5phd7r6pldm"]
+
+[ext_resource type="AudioStream" uid="uid://bmj5giwdukjsq" path="res://enemy/contact/SFX/Zombie_HitSFX1.wav" id="1_swv4h"]
+[ext_resource type="AudioStream" uid="uid://c3k4s6ivp38jj" path="res://enemy/contact/SFX/Zombie_HitSFX2.wav" id="2_fvi71"]
+
+[resource]
+streams_count = 2
+stream_0/stream = ExtResource("1_swv4h")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_fvi71")
+stream_1/weight = 1.0

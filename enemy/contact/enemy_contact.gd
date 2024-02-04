@@ -25,9 +25,13 @@ func take_damage(damage: int):
 	if life < 0:
 		life = 0
 		die()
-		
+	else:
+		$Hit_SFX.play()
+		print_debug("test")
+	
 func die():
 	set_animation("death")
+	$Death_SFX.play()
 	var die_vfx_instance = die_vfx.instantiate()
 	die_vfx_instance.position = position
 	get_parent().add_child(die_vfx_instance)
@@ -68,7 +72,8 @@ func _process(delta):
 			sprite.scale.x = direction * abs(sprite.scale.x)
 	if sqr_dist_to_player < attack_range*attack_range and not is_in_cooldown:
 		is_in_cooldown = true
-		set_animation("atk")		
+		set_animation("atk")
+		$Effort_SFX.play()
 		$AttackTimer.start()
 
 func _attack_player():
