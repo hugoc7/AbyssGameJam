@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://el4kjdhpdtxw"
-path="res://.godot/imported/Zombie_Noir_Idle.png-d8f88d629ec17a2ac19bc056369d0d33.ctex"
+uid="uid://c8k8o0l1w4x47"
+path="res://.godot/imported/Zombie_Noir_Run.png-a7ea402e2c4edac3899691687b7335b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy/contact/Zombie_Noir_Idle.png"
-dest_files=["res://.godot/imported/Zombie_Noir_Idle.png-d8f88d629ec17a2ac19bc056369d0d33.ctex"]
+source_file="res://enemy/contact/Animation/Zombie_Noir_Run.png"
+dest_files=["res://.godot/imported/Zombie_Noir_Run.png-a7ea402e2c4edac3899691687b7335b4.ctex"]
 
 [params]
 
