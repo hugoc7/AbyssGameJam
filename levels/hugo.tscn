@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4yhk5o1gop6"]
+[gd_scene load_steps=14 format=3 uid="uid://b4yhk5o1gop6"]
 
 [ext_resource type="Script" path="res://game_manager/game_manager.gd" id="1_tdwjc"]
 [ext_resource type="Texture2D" uid="uid://dl4qnp8j0q2fs" path="res://background/bkg_light.tres" id="2_daf2r"]
@@ -7,11 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://chskkiuolcqd6" path="res://background/bkg_dark.tres" id="4_uiwq1"]
 [ext_resource type="PackedScene" uid="uid://ck8o5v52wgvf6" path="res://player/player.tscn" id="5_d21w1"]
 [ext_resource type="PackedScene" uid="uid://cbe8prr8x1r0m" path="res://enemy/contact/enemy_contact.tscn" id="6_l8te7"]
+[ext_resource type="PackedScene" uid="uid://dkdfa3qyl3g7c" path="res://enemy/bat/enemy_bat.tscn" id="7_i3bic"]
 [ext_resource type="PackedScene" uid="uid://85ag7xxy5r67" path="res://hud/hud.tscn" id="7_pvkj3"]
 [ext_resource type="Script" path="res://camera/camera.gd" id="8_s1ufl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w26nm"]
-size = Vector2(1152, 43)
+size = Vector2(4779, 44)
 
 [sub_resource type="Gradient" id="Gradient_p06mu"]
 
@@ -26,9 +27,9 @@ main_menu = ExtResource("2_gjmx3")
 position = Vector2(120, 390)
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(575, 320.764)
+position = Vector2(576.673, 320.764)
 rotation = 1.5708
-scale = Vector2(2.52317, 1152.3)
+scale = Vector2(2.52317, 4783.64)
 texture = ExtResource("2_daf2r")
 script = ExtResource("3_cer8s")
 dark_texture = ExtResource("4_uiwq1")
@@ -40,11 +41,12 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="Collider" type="CollisionShape2D" parent="Ground"]
+position = Vector2(-5.5, 0.5)
 shape = SubResource("RectangleShape2D_w26nm")
 debug_color = Color(0.572549, 0.454902, 0.823529, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
-scale = Vector2(4.49609, 43)
+scale = Vector2(18.6561, 43)
 texture = SubResource("GradientTexture1D_gf473")
 
 [node name="Player" parent="." instance=ExtResource("5_d21w1")]
@@ -54,6 +56,11 @@ damage = 100
 [node name="Projectiles" type="Node" parent="."]
 
 [node name="Enemy" type="Node" parent="."]
+
+[node name="EnemyBat" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_i3bic")]
+position = Vector2(380, 338)
+player = NodePath("../../Player")
+speed = 100.0
 
 [node name="EnemyContact" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("6_l8te7")]
 position = Vector2(461, 508)

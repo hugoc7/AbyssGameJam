@@ -12,12 +12,24 @@ const purchase_distance = Vector2(250,1200) # (min, max)
 const y_speed: float = 5
 @export var damage : int = 10
 @export var attack_range : float = 200
+@export var life = 100
+@export var explosion_vfx : PackedScene
 
 var is_in_cooldown = false
 
 const turnaround_cooldown_duration : float = 5
 var turnaround_timer : SceneTreeTimer = null
 
+func take_damage(damage):
+	life -= damage
+	if life <= 0:
+		die()
+		
+func die():
+	queue_free()
+	var explosion_instance = explosion_vfx.instantiate()
+	explosion_instance.position = position
+	get_parent().add_child(explosion_instance)
 
 func _ready():
 	if color == Enums.LightColor.WHITE:
