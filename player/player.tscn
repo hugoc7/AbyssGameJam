@@ -23,6 +23,7 @@ height = 234.0
 size = Vector2(282.418, 171)
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 12
 script = ExtResource("1_esoqt")
 fireball = ExtResource("2_8pqtj")
 
@@ -50,6 +51,8 @@ texture = ExtResource("2_ibxpq")
 
 [node name="AttackArea" type="Area2D" parent="Body"]
 scale = Vector2(0.490234, 1)
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/AttackArea"]
 position = Vector2(193.325, -2.5)
@@ -60,6 +63,9 @@ wait_time = 0.1
 one_shot = true
 
 [node name="ShortAttackCooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="RangeAttackCooldownTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="SwordMissSound" type="AudioStreamPlayer2D" parent="."]

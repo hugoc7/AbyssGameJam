@@ -6,7 +6,7 @@ signal life_changed(new_value: int)
 @export var jump_velocity = -400.0
 @export var damage : int = 10
 @export var fireball : PackedScene
-@export var fireball_speed = 100.0
+@export var fireball_speed = 400.0
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -37,20 +37,28 @@ func short_attack():
 			area.take_damage(damage)
 			
 func range_attack():
-	var fireball_instance = fireball.instantiate()
-	fireball_instance.global_position = $Body/ProjectileSpawn.global_position
-	get_parent().add_child(fireball_instance)
+	var fireball_instance : Projectile = fireball.instantiate()
 	var direction = global_position.direction_to(get_global_mouse_position()) 
-	fireball_instance.apply_impulse(direction*fireball_speed)
+	var fireball_real_speed = fireball_speed
+	if direction.x * velocity.x > 0:
+		fireball_real_speed += abs(velocity.x) 
+	fireball_instance.launch($Body/ProjectileSpawn.global_position, direction*fireball_real_speed)
+	get_parent().add_child(fireball_instance)
+	is_range_attack_on_cooldown = true
+	$RangeAttackCooldownTimer.start()
 	
 	
 func reset_short_attack_cooldown():
 	is_short_attack_on_cooldown = false
+	
+func reset_range_attack_cooldown():
+	is_range_attack_on_cooldown = false
 
 func _ready():
 	emit_signal("life_changed", life)
 	$ShortAttackTimer.timeout.connect(short_attack)
 	$ShortAttackCooldownTimer.timeout.connect(reset_short_attack_cooldown)
+	$RangeAttackCooldownTimer.timeout.connect(reset_range_attack_cooldown)
 	
 func _physics_process(delta):
 	# Add the gravity.
