@@ -1,10 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://3msm8m5agd32"]
+[gd_scene load_steps=13 format=3 uid="uid://3msm8m5agd32"]
 
 [ext_resource type="Script" path="res://game_manager/game_manager.gd" id="1_dhjyw"]
 [ext_resource type="PackedScene" uid="uid://bmul6447vnsfc" path="res://menu/main_menu.tscn" id="2_7e8bt"]
-[ext_resource type="Texture2D" uid="uid://dl4qnp8j0q2fs" path="res://background/bkg_light.tres" id="3_abl7a"]
 [ext_resource type="Script" path="res://background/background.gd" id="4_b4xrc"]
-[ext_resource type="Texture2D" uid="uid://chskkiuolcqd6" path="res://background/bkg_dark.tres" id="5_1yh0j"]
 [ext_resource type="PackedScene" uid="uid://ck8o5v52wgvf6" path="res://player/player.tscn" id="6_gvd8d"]
 [ext_resource type="PackedScene" uid="uid://dkdfa3qyl3g7c" path="res://enemy/bat/enemy_bat.tscn" id="7_uj0o1"]
 [ext_resource type="PackedScene" uid="uid://cbe8prr8x1r0m" path="res://enemy/contact/enemy_contact.tscn" id="8_wx56g"]
@@ -31,10 +29,7 @@ position = Vector2(120, 390)
 position = Vector2(576.673, 320.764)
 rotation = 1.5708
 scale = Vector2(2.52317, 4783.64)
-texture = ExtResource("3_abl7a")
 script = ExtResource("4_b4xrc")
-dark_texture = ExtResource("5_1yh0j")
-light_texture = ExtResource("3_abl7a")
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(577, 617.5)
