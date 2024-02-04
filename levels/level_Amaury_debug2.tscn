@@ -25,6 +25,7 @@
 size = Vector2(2842, 65.5)
 
 [node name="levelAmaury" type="Node2D"]
+rotation = 0.0047664
 script = ExtResource("1_mkhcp")
 main_menu = ExtResource("2_p8tfw")
 
@@ -58,7 +59,7 @@ black_texture = ExtResource("7_bwj7u")
 white_texture = ExtResource("6_2ph0m")
 
 [node name="TreeVerySmall2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(1000, 718)
+position = Vector2(741, 894)
 scale = Vector2(4, 4)
 texture = ExtResource("11_rv0ko")
 region_rect = Rect2(-620.5, -250.625, 1792, 562)
@@ -68,7 +69,7 @@ white_texture = ExtResource("11_rv0ko")
 
 [node name="Grass" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 texture_repeat = 2
-position = Vector2(910, 925)
+position = Vector2(700, 1098)
 scale = Vector2(2, 2)
 texture = ExtResource("10_rbsba")
 region_enabled = true
@@ -82,7 +83,7 @@ position = Vector2(10, 2)
 motion_scale = Vector2(0.5, 0.5)
 
 [node name="TreeSmall" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2(1236, 613)
+position = Vector2(878, 711)
 scale = Vector2(4, 4)
 texture = ExtResource("13_t8jdp")
 region_rect = Rect2(-620.5, -250.625, 1792, 562)
@@ -92,7 +93,7 @@ white_texture = ExtResource("13_t8jdp")
 
 [node name="Grass" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 texture_repeat = 2
-position = Vector2(1097, 822)
+position = Vector2(761, 917)
 scale = Vector2(2, 2)
 texture = ExtResource("10_rbsba")
 region_enabled = true
@@ -106,7 +107,7 @@ position = Vector2(20, 4)
 motion_scale = Vector2(0.8, 0.8)
 
 [node name="TreeMedium" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
-position = Vector2(1366, 495)
+position = Vector2(1141, 544)
 scale = Vector2(4, 4)
 texture = ExtResource("10_bsepb")
 region_rect = Rect2(-620.5, -250.625, 1792, 562)
@@ -116,7 +117,7 @@ white_texture = ExtResource("10_bsepb")
 
 [node name="Grass" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
 texture_repeat = 2
-position = Vector2(1057, 704)
+position = Vector2(898, 750)
 scale = Vector2(2, 2)
 texture = ExtResource("10_rbsba")
 region_enabled = true
@@ -149,17 +150,18 @@ color = 1
 player = NodePath("../../Player")
 
 [node name="EnemyBatW" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_anlvf")]
-position = Vector2(1915, 524)
+position = Vector2(1856, 1138)
 player = NodePath("../../Player")
 
 [node name="EnemyBatB" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_anlvf")]
-position = Vector2(2063, 419)
+position = Vector2(2290, 1236)
 color = 1
 player = NodePath("../../Player")
 
 [node name="HUD" parent="." instance=ExtResource("8_kfuhu")]
 
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(5, 236)
 offset = Vector2(0, -200)
 zoom = Vector2(0.5, 0.5)
 script = ExtResource("9_d3iuq")
@@ -177,7 +179,7 @@ debug_color = Color(0.572549, 0.454902, 0.823529, 0.419608)
 
 [node name="Grass" type="Sprite2D" parent="Ground"]
 texture_repeat = 2
-position = Vector2(160, 66.5)
+position = Vector2(160, 67)
 scale = Vector2(2, 2)
 texture = ExtResource("10_rbsba")
 region_enabled = true

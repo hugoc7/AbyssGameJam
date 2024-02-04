@@ -4,4 +4,4 @@ extends Camera2D
 
 func _process(delta):
 	if target:
-		position = target.position
+		position.x = target.position.x
