@@ -7,17 +7,19 @@ class_name EnemyBat
 @export var white_texture : Texture2D = null
 @export var black_texture : Texture2D = null
 @export var player : Node2D = null
-const purchase_distance = Vector2(250,1200) # (min, max)
+@export var purchase_distance = Vector2(250,1200) # (min, max)
 @export var speed : float = 50.0
-const y_speed: float = 5
+@export var y_speed: float = 5
 @export var damage : int = 10
 @export var attack_range : float = 200
 @export var life = 100
 @export var explosion_vfx : PackedScene
+@export var projectile : PackedScene
+@export var projectile_speed = 300.0
+@export var turnaround_cooldown_duration : float = 5
 
 var is_in_cooldown = false
 
-const turnaround_cooldown_duration : float = 5
 var turnaround_timer : SceneTreeTimer = null
 
 func take_damage(damage):
@@ -30,6 +32,14 @@ func die():
 	var explosion_instance = explosion_vfx.instantiate()
 	explosion_instance.position = position
 	get_parent().add_child(explosion_instance)
+
+func fire_projectile():
+	var projectile_instance : Projectile = projectile.instantiate()
+	projectile_instance.damage = self.damage
+	projectile_instance.collision_layer = 5
+	projectile_instance.collision_mask = 9
+	projectile_instance.launch(position, projectile_speed*global_position.direction_to(player.global_position))
+	get_parent().add_child(projectile_instance)
 
 func _ready():
 	if color == Enums.LightColor.WHITE:
@@ -54,7 +64,11 @@ func _on_background_color_changed(bkg_color: Enums.LightColor):
 func _process(delta):
 	if player == null:
 		return
-	var sqr_dist_to_player = global_position.distance_squared_to(player.position)
+		
+	var sqr_dist_to_player = global_position.distance_squared_to(player.global_position)
+	if $AttackTimer.is_stopped() and sqr_dist_to_player < attack_range * attack_range:
+		$AttackTimer.start()
+	
 	if sqr_dist_to_player < purchase_distance.y * purchase_distance.y:
 		#print_debug(sqrt(sqr_dist_to_player)," ", purchase_distance.y," ", purchase_distance.x," ",turnaround_timer.time_left)
 		if sqr_dist_to_player < purchase_distance.x * purchase_distance.x:

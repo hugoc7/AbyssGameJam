@@ -60,7 +60,10 @@ damage = 100
 [node name="EnemyBat" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_i3bic")]
 position = Vector2(380, 338)
 player = NodePath("../../Player")
-speed = 100.0
+
+[node name="EnemyBat2" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_i3bic")]
+position = Vector2(-1050, 210)
+player = NodePath("../../Player")
 
 [node name="EnemyContact" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("6_l8te7")]
 position = Vector2(461, 508)
