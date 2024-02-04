@@ -32,25 +32,25 @@ main_menu = ExtResource("2_p8tfw")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer1" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.1, 0.1)
+motion_scale = Vector2(0.1, 1)
 
 [node name="Bkg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer1"]
 texture_repeat = 2
-position = Vector2(1472, 568)
+position = Vector2(1476, 76)
 scale = Vector2(4, 4)
 texture = ExtResource("12_pxbxq")
 region_enabled = true
-region_rect = Rect2(-620.5, -250.625, 1792, 562)
+region_rect = Rect2(-482.438, -195.623, 1919.83, 427.273)
 script = ExtResource("4_1on1x")
 black_texture = ExtResource("11_27wwu")
 white_texture = ExtResource("12_pxbxq")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(5, 1)
-motion_scale = Vector2(0.2, 0.2)
+motion_scale = Vector2(0.2, 1)
 
 [node name="Moon" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(321, 148)
+position = Vector2(187, -198)
 scale = Vector2(4, 4)
 texture = ExtResource("6_2ph0m")
 region_rect = Rect2(-620.5, -250.625, 1792, 562)
@@ -59,7 +59,7 @@ black_texture = ExtResource("7_bwj7u")
 white_texture = ExtResource("6_2ph0m")
 
 [node name="TreeVerySmall2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(741, 894)
+position = Vector2(721, 428)
 scale = Vector2(4, 4)
 texture = ExtResource("11_rv0ko")
 region_rect = Rect2(-620.5, -250.625, 1792, 562)
@@ -80,10 +80,10 @@ white_texture = ExtResource("10_rbsba")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(10, 2)
-motion_scale = Vector2(0.5, 0.5)
+motion_scale = Vector2(0.5, 1)
 
 [node name="TreeSmall" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2(878, 711)
+position = Vector2(904, 426)
 scale = Vector2(4, 4)
 texture = ExtResource("13_t8jdp")
 region_rect = Rect2(-620.5, -250.625, 1792, 562)
@@ -93,7 +93,7 @@ white_texture = ExtResource("13_t8jdp")
 
 [node name="Grass" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 texture_repeat = 2
-position = Vector2(761, 917)
+position = Vector2(694, 1316)
 scale = Vector2(2, 2)
 texture = ExtResource("10_rbsba")
 region_enabled = true
@@ -104,10 +104,10 @@ white_texture = ExtResource("10_rbsba")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(20, 4)
-motion_scale = Vector2(0.8, 0.8)
+motion_scale = Vector2(0.8, 1)
 
 [node name="TreeMedium" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
-position = Vector2(1141, 544)
+position = Vector2(1113, 426)
 scale = Vector2(4, 4)
 texture = ExtResource("10_bsepb")
 region_rect = Rect2(-620.5, -250.625, 1792, 562)
@@ -117,7 +117,7 @@ white_texture = ExtResource("10_bsepb")
 
 [node name="Grass" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
 texture_repeat = 2
-position = Vector2(898, 750)
+position = Vector2(851, 1172)
 scale = Vector2(2, 2)
 texture = ExtResource("10_rbsba")
 region_enabled = true
@@ -141,7 +141,7 @@ position = Vector2(136, 489)
 [node name="Enemy" type="Node" parent="."]
 
 [node name="EnemyContactW" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_w0fgk")]
-position = Vector2(2346, 892)
+position = Vector2(1262, 1485)
 player = NodePath("../../Player")
 
 [node name="EnemyContactB" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_w0fgk")]
@@ -150,15 +150,13 @@ color = 1
 player = NodePath("../../Player")
 
 [node name="EnemyBatW" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_anlvf")]
-position = Vector2(1856, 1138)
+position = Vector2(3323, 1428)
 player = NodePath("../../Player")
 
 [node name="EnemyBatB" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_anlvf")]
-position = Vector2(2290, 1236)
+position = Vector2(3007, 1406)
 color = 1
 player = NodePath("../../Player")
-
-[node name="HUD" parent="." instance=ExtResource("8_kfuhu")]
 
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(5, 236)
@@ -166,6 +164,8 @@ offset = Vector2(0, -200)
 zoom = Vector2(0.5, 0.5)
 script = ExtResource("9_d3iuq")
 target = NodePath("../Player")
+
+[node name="HUD" parent="." instance=ExtResource("8_kfuhu")]
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(797, 565)
@@ -179,7 +179,7 @@ debug_color = Color(0.572549, 0.454902, 0.823529, 0.419608)
 
 [node name="Grass" type="Sprite2D" parent="Ground"]
 texture_repeat = 2
-position = Vector2(160, 67)
+position = Vector2(158.011, 64.4552)
 scale = Vector2(2, 2)
 texture = ExtResource("10_rbsba")
 region_enabled = true
