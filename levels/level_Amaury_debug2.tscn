@@ -1,61 +1,138 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjtbsskqs17h3"]
+[gd_scene load_steps=22 format=3 uid="uid://cjtbsskqs17h3"]
 
 [ext_resource type="Script" path="res://game_manager/game_manager.gd" id="1_mkhcp"]
 [ext_resource type="PackedScene" uid="uid://bmul6447vnsfc" path="res://menu/main_menu.tscn" id="2_p8tfw"]
-[ext_resource type="Texture2D" uid="uid://dl4qnp8j0q2fs" path="res://background/bkg_light.tres" id="3_foh6r"]
 [ext_resource type="Script" path="res://background/background.gd" id="4_1on1x"]
-[ext_resource type="Texture2D" uid="uid://chskkiuolcqd6" path="res://background/bkg_dark.tres" id="5_lbkyt"]
+[ext_resource type="Texture2D" uid="uid://cju2e3xitswtc" path="res://background/Lune_Blanche.png" id="6_2ph0m"]
 [ext_resource type="PackedScene" uid="uid://ck8o5v52wgvf6" path="res://player/player.tscn" id="6_vocaj"]
+[ext_resource type="Texture2D" uid="uid://ccv7aask0atan" path="res://background/Lune_Noir.png" id="7_bwj7u"]
 [ext_resource type="PackedScene" uid="uid://cbe8prr8x1r0m" path="res://enemy/contact/enemy_contact.tscn" id="7_w0fgk"]
 [ext_resource type="PackedScene" uid="uid://dkdfa3qyl3g7c" path="res://enemy/bat/enemy_bat.tscn" id="8_anlvf"]
 [ext_resource type="PackedScene" uid="uid://85ag7xxy5r67" path="res://hud/hud.tscn" id="8_kfuhu"]
 [ext_resource type="Script" path="res://camera/camera.gd" id="9_d3iuq"]
+[ext_resource type="Texture2D" uid="uid://d3bbfxl8gbd1l" path="res://background/Tree_Medium_Blanc.png" id="10_bsepb"]
+[ext_resource type="Texture2D" uid="uid://04k2v4omn6ya" path="res://background/Grass.png" id="10_rbsba"]
+[ext_resource type="Texture2D" uid="uid://bh7gny0jc8oov" path="res://background/Background_Noir.png" id="11_27wwu"]
+[ext_resource type="Texture2D" uid="uid://bb8nthoqvxjfl" path="res://background/Tree_Medium_Noir.png" id="11_41he0"]
+[ext_resource type="Texture2D" uid="uid://c56nj5mli5aes" path="res://background/Tree_VerySmall_Blanc.png" id="11_rv0ko"]
+[ext_resource type="Texture2D" uid="uid://ch6u7bf4shbie" path="res://background/Tree_VerySmall_Noir.png" id="12_cyun0"]
+[ext_resource type="Texture2D" uid="uid://c32t8fm180s2n" path="res://background/Tree_Small_Noir.png" id="12_kpxpg"]
+[ext_resource type="Texture2D" uid="uid://dupg7nlgpy05o" path="res://background/Background_Blanc.png" id="12_pxbxq"]
+[ext_resource type="Texture2D" uid="uid://bnentgq61y31b" path="res://background/Tree.png" id="12_xcevc"]
+[ext_resource type="Texture2D" uid="uid://ebc2kimwwx3" path="res://background/Tree_Small_Blanc.png" id="13_t8jdp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w26nm"]
-size = Vector2(1152, 43)
-
-[sub_resource type="Gradient" id="Gradient_remp2"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_gf473"]
-gradient = SubResource("Gradient_remp2")
+size = Vector2(2842, 65.5)
 
 [node name="levelAmaury" type="Node2D"]
 script = ExtResource("1_mkhcp")
 main_menu = ExtResource("2_p8tfw")
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Bkg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer1"]
+texture_repeat = 2
+position = Vector2(1472, 568)
+scale = Vector2(4, 4)
+texture = ExtResource("12_pxbxq")
+region_enabled = true
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_1on1x")
+black_texture = ExtResource("11_27wwu")
+white_texture = ExtResource("12_pxbxq")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(5, 1)
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="Moon" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(321, 148)
+scale = Vector2(4, 4)
+texture = ExtResource("6_2ph0m")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_1on1x")
+black_texture = ExtResource("7_bwj7u")
+white_texture = ExtResource("6_2ph0m")
+
+[node name="TreeVerySmall2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1000, 718)
+scale = Vector2(4, 4)
+texture = ExtResource("11_rv0ko")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_1on1x")
+black_texture = ExtResource("12_cyun0")
+white_texture = ExtResource("11_rv0ko")
+
+[node name="Grass" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_repeat = 2
+position = Vector2(910, 925)
+scale = Vector2(2, 2)
+texture = ExtResource("10_rbsba")
+region_enabled = true
+region_rect = Rect2(-846.862, 0, 1420.86, 32)
+script = ExtResource("4_1on1x")
+black_texture = ExtResource("10_rbsba")
+white_texture = ExtResource("10_rbsba")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(10, 2)
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="TreeSmall" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(1236, 613)
+scale = Vector2(4, 4)
+texture = ExtResource("13_t8jdp")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_1on1x")
+black_texture = ExtResource("12_kpxpg")
+white_texture = ExtResource("13_t8jdp")
+
+[node name="Grass" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_repeat = 2
+position = Vector2(1097, 822)
+scale = Vector2(2, 2)
+texture = ExtResource("10_rbsba")
+region_enabled = true
+region_rect = Rect2(-846.862, 0, 1420.86, 32)
+script = ExtResource("4_1on1x")
+black_texture = ExtResource("10_rbsba")
+white_texture = ExtResource("10_rbsba")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(20, 4)
+motion_scale = Vector2(0.8, 0.8)
+
+[node name="TreeMedium" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(1366, 495)
+scale = Vector2(4, 4)
+texture = ExtResource("10_bsepb")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_1on1x")
+black_texture = ExtResource("11_41he0")
+white_texture = ExtResource("10_bsepb")
+
+[node name="Grass" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture_repeat = 2
+position = Vector2(1057, 704)
+scale = Vector2(2, 2)
+texture = ExtResource("10_rbsba")
+region_enabled = true
+region_rect = Rect2(-846.862, 0, 1420.86, 32)
+script = ExtResource("4_1on1x")
+black_texture = ExtResource("10_rbsba")
+white_texture = ExtResource("10_rbsba")
+
+[node name="Tree" type="Sprite2D" parent="."]
+position = Vector2(1564, 431)
+scale = Vector2(4, 4)
+texture = ExtResource("12_xcevc")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+
 [node name="PlayerSpawn" type="Marker2D" parent="."]
 position = Vector2(120, 390)
-
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(1152.46, 251.47)
-rotation = 1.5708
-scale = Vector2(3.06455, 2307.23)
-texture = ExtResource("3_foh6r")
-script = ExtResource("4_1on1x")
-dark_texture = ExtResource("5_lbkyt")
-light_texture = ExtResource("3_foh6r")
-
-[node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(577, 617.5)
-
-[node name="Collider" type="CollisionShape2D" parent="Ground"]
-shape = SubResource("RectangleShape2D_w26nm")
-debug_color = Color(0.572549, 0.454902, 0.823529, 0.419608)
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground"]
-scale = Vector2(4.49609, 43)
-texture = SubResource("GradientTexture1D_gf473")
-
-[node name="Ground2" type="StaticBody2D" parent="."]
-position = Vector2(1727, 617)
-
-[node name="Collider" type="CollisionShape2D" parent="Ground2"]
-shape = SubResource("RectangleShape2D_w26nm")
-debug_color = Color(0.572549, 0.454902, 0.823529, 0.419608)
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground2"]
-scale = Vector2(4.49609, 43)
-texture = SubResource("GradientTexture1D_gf473")
 
 [node name="Player" parent="." instance=ExtResource("6_vocaj")]
 position = Vector2(136, 489)
@@ -63,22 +140,22 @@ position = Vector2(136, 489)
 [node name="Enemy" type="Node" parent="."]
 
 [node name="EnemyContactW" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_w0fgk")]
-position = Vector2(1492, 494)
+position = Vector2(2346, 892)
 player = NodePath("../../Player")
 
 [node name="EnemyContactB" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_w0fgk")]
-position = Vector2(1793, 503)
+position = Vector2(2608, 968)
 color = 1
 player = NodePath("../../Player")
 
 [node name="EnemyBatW" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_anlvf")]
-position = Vector2(574, 546)
+position = Vector2(1915, 524)
 player = NodePath("../../Player")
 
-[node name="EnemyBatB" parent="Enemy/EnemyBatW" node_paths=PackedStringArray("player") instance=ExtResource("8_anlvf")]
-position = Vector2(197, -66)
+[node name="EnemyBatB" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_anlvf")]
+position = Vector2(2063, 419)
 color = 1
-player = NodePath("../../../Player")
+player = NodePath("../../Player")
 
 [node name="HUD" parent="." instance=ExtResource("8_kfuhu")]
 
@@ -87,5 +164,23 @@ offset = Vector2(0, -200)
 zoom = Vector2(0.5, 0.5)
 script = ExtResource("9_d3iuq")
 target = NodePath("../Player")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(797, 565)
+collision_layer = 8
+collision_mask = 13
+
+[node name="Collider" type="CollisionShape2D" parent="Ground"]
+position = Vector2(160, 66.75)
+shape = SubResource("RectangleShape2D_w26nm")
+debug_color = Color(0.572549, 0.454902, 0.823529, 0.419608)
+
+[node name="Grass" type="Sprite2D" parent="Ground"]
+texture_repeat = 2
+position = Vector2(160, 66.5)
+scale = Vector2(2, 2)
+texture = ExtResource("10_rbsba")
+region_enabled = true
+region_rect = Rect2(-846.862, 0, 1420.86, 32)
 
 [connection signal="life_changed" from="Player" to="HUD" method="_on_player_life_changed"]

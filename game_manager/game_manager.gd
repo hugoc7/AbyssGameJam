@@ -14,7 +14,12 @@ func _switch_color():
 		level_color_state = Enums.LightColor.BLACK
 	else:
 		level_color_state = Enums.LightColor.WHITE
-	$Background.update_color(level_color_state)
+		
+	for layer: ParallaxLayer in $ParallaxBackground.get_children():
+		for sprite:Sprite2D in layer.get_children():
+			sprite.update_color(level_color_state)
+	
+	#$ParallaxBackground/ParallaxLayer/Background.update_color(level_color_state)
 	emit_signal("level_color_state_changed", level_color_state)
 
 func _ready():
