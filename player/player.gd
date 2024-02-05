@@ -116,7 +116,9 @@ func _process(delta):
 	#set animation
 	if is_invincible:
 		set_animation("hit")
+		$Body/Sprite.modulate = Color(1.0,1.0,1.0,0.5)
 	else:
+		$Body/Sprite.modulate = Color(1.0,1.0,1.0,1.0)
 		match state:
 			IDLE:
 				set_animation("idle")

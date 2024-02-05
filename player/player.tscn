@@ -390,7 +390,7 @@ region = Rect2(1024, 0, 128, 64)
 atlas = ExtResource("14_dcvsi")
 region = Rect2(1152, 0, 128, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_7cpyh"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ayksq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -751,10 +751,8 @@ position = Vector2(52, -63)
 [node name="Sprite" type="AnimatedSprite2D" parent="Body"]
 position = Vector2(133, -88)
 scale = Vector2(4.0625, 6.09375)
-sprite_frames = SubResource("SpriteFrames_7cpyh")
+sprite_frames = SubResource("SpriteFrames_ayksq")
 animation = &"atk_white"
-frame = 2
-frame_progress = 0.0995463
 
 [node name="AttackArea" type="Area2D" parent="Body"]
 scale = Vector2(0.490234, 1)
