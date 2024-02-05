@@ -1,6 +1,6 @@
 [gd_scene load_steps=46 format=3 uid="uid://bohks2gk1v2ss"]
 
-[ext_resource type="Script" path="res://menu/main_menu.gd" id="1_2h88l"]
+[ext_resource type="Script" path="res://menu/victory.gd" id="1_g3r5e"]
 [ext_resource type="Texture2D" uid="uid://bh7gny0jc8oov" path="res://background/Background_Noir.png" id="2_8gkxf"]
 [ext_resource type="Texture2D" uid="uid://cct0vdyr7s1xl" path="res://menu/MainTitle-Sheet.png" id="3_2i8dp"]
 [ext_resource type="Texture2D" uid="uid://kvkw0xo5w1e4" path="res://menu/Victory.png" id="4_cx4fl"]
@@ -288,7 +288,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_2h88l")
+script = ExtResource("1_g3r5e")
 
 [node name="Bkg" type="Sprite2D" parent="."]
 texture_repeat = 2
@@ -321,6 +321,7 @@ texture = ExtResource("4_cx4fl")
 
 [node name="Quit" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 492.0
 offset_top = 563.0
 offset_right = 724.0
