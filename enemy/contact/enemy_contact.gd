@@ -65,18 +65,19 @@ func _process(delta):
 		return
 	var sqr_dist_to_player = global_position.distance_squared_to(player.position)
 	if sqr_dist_to_player < purchase_distance.y * purchase_distance.y:
-		if sqr_dist_to_player > purchase_distance.x * purchase_distance.x:
-			var direction = sign(player.global_position.x - global_position.x)
-			global_position.x += direction * speed * delta
-			set_animation("run")
-			#if $Sprite2D.scale.x * direction < 0:
-			sprite.scale.x = direction * abs(sprite.scale.x)
-		
 		if sqr_dist_to_player < attack_range*attack_range and not is_in_cooldown:
 			is_in_cooldown = true
 			set_animation("atk")
 			$Effort_SFX.play()
 			$AttackTimer.start()
+		elif sqr_dist_to_player > purchase_distance.x * purchase_distance.x:
+			var direction = sign(player.global_position.x - global_position.x)
+			global_position.x += direction * speed * delta
+			set_animation("run")
+			#if $Sprite2D.scale.x * direction < 0:
+			sprite.scale.x = direction * abs(sprite.scale.x)
+		else:
+			set_animation("idle")
 
 func _attack_player():
 	$CooldownTimer.start()	
@@ -91,5 +92,3 @@ func _on_cooldown_timeout():
 func _on_sprite_animation_loop():
 	if is_dying:
 		queue_free()
-	else:
-		set_animation("idle")
