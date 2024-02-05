@@ -152,23 +152,3 @@ texture = ExtResource("6_2fw5i")
 [node name="MoonPhaseTuto" type="Sprite2D" parent="Panel/AttackTuto/JumpTuto/MovementTuto"]
 position = Vector2(1100, 0)
 texture = ExtResource("7_rf4fd")
-
-[node name="MessagePanel" type="Panel" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -574.0
-offset_top = -480.0
-offset_right = 577.0
-offset_bottom = -183.0
-grow_horizontal = 2
-grow_vertical = 0
-pivot_offset = Vector2(576, 0)
-
-[node name="TextureRect" type="TextureRect" parent="MessagePanel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
