@@ -755,7 +755,7 @@ position = Vector2(52, -63)
 position = Vector2(133, -88)
 scale = Vector2(4.0625, 6.09375)
 sprite_frames = SubResource("SpriteFrames_ayksq")
-animation = &"death_white"
+animation = &"hit_black"
 
 [node name="AttackArea" type="Area2D" parent="Body"]
 scale = Vector2(0.490234, 1)

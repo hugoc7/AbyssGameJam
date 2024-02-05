@@ -11,7 +11,7 @@ class_name EnemyContact
 @export var speed : float = 50.0
 @export var damage : int = 10
 @export var attack_range : float = 200
-@export var life = 10
+@export var life = 20
 @export var die_vfx : PackedScene
 
 var is_in_cooldown = false
@@ -27,7 +27,7 @@ func take_damage(damage_taken: int):
 	set_animation("hit")
 	is_attacked = true
 	life -= damage_taken
-	if life < 0:
+	if life <= 0:
 		life = 0
 		die()
 	else:
@@ -50,6 +50,7 @@ func _ready():
 	elif color == Enums.LightColor.BLACK:
 		color_as_text = "black"
 	set_animation("idle")
+	_change_color("white")
 	
 	if Engine.is_editor_hint():
 		set_process(false)
@@ -61,7 +62,17 @@ func _ready():
 		
 
 func _on_background_color_changed(bkg_color: Enums.LightColor):
-	sprite.visible = bkg_color != color
+	match bkg_color:
+		Enums.LightColor.BLACK:
+			_change_color("black")
+		Enums.LightColor.WHITE:
+			_change_color("white")
+
+func _change_color(color : String):
+	if color == color_as_text:
+		sprite.self_modulate.a = 0.5
+	else:
+		sprite.self_modulate.a = 1
 
 func _process(delta):
 	if player == null or is_dying:

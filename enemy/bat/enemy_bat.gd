@@ -11,7 +11,7 @@ class_name EnemyBat
 @export var speed : float = 50.0
 @export var damage : int = 10
 @export var attack_range : float = 200
-@export var life = 100
+@export var life = 10
 @export var explosion_vfx : PackedScene
 @export var projectile : PackedScene
 @export var projectile_speed = 300.0
@@ -51,7 +51,7 @@ func fire_projectile():
 	projectile_instance.damage = self.damage
 	projectile_instance.collision_layer = 0
 	projectile_instance.collision_mask = 9
-	projectile_instance.launch(position, projectile_speed*global_position.direction_to(player.global_position), color_as_text)
+	projectile_instance.launch(position, projectile_speed*global_position.direction_to(player.global_position), color_as_text, false)
 	get_parent().add_child(projectile_instance)
 
 func _ready():
@@ -71,8 +71,18 @@ func _ready():
 	
 	
 func _on_background_color_changed(bkg_color: Enums.LightColor):
-	sprite.visible = bkg_color != color
-	
+	match bkg_color:
+		Enums.LightColor.BLACK:
+			_change_color("black")
+		Enums.LightColor.WHITE:
+			_change_color("white")
+
+func _change_color(color : String):
+	if color == color_as_text:
+		sprite.self_modulate.a = 0.5
+	else:
+		sprite.self_modulate.a = 1
+
 func _process(delta):
 	if player == null:
 		return

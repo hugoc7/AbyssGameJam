@@ -15,7 +15,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var life = 100
 var is_short_attack_on_cooldown = false
 var is_range_attack_on_cooldown = false
-var color_as_text = "white"
+var color_as_text = "black"
 var state = IDLE
 var is_invincible = false
 const FLOAT_PRECISION = 0.0001
@@ -54,7 +54,8 @@ func short_attack():
 	
 	for area in other_areas:
 		if area.has_method("take_damage"):
-			area.take_damage(damage)
+			if area.color_as_text == color_as_text :
+				area.take_damage(damage)
 			
 func range_attack():
 	var fireball_instance : Projectile = fireball.instantiate()
@@ -62,7 +63,7 @@ func range_attack():
 	var fireball_real_speed = fireball_speed
 	if direction.x * velocity.x > 0:
 		fireball_real_speed += abs(velocity.x) 
-	fireball_instance.launch($Body/ProjectileSpawn.global_position, direction*fireball_real_speed, color_as_text)
+	fireball_instance.launch($Body/ProjectileSpawn.global_position, direction*fireball_real_speed, color_as_text, true)
 	get_parent().add_child(fireball_instance)
 	is_range_attack_on_cooldown = true
 	$RangeAttackCooldownTimer.start()

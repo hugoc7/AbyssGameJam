@@ -15,6 +15,8 @@ func _switch_color():
 	else:
 		level_color_state = Enums.LightColor.WHITE
 	
+	
+	
 	if get_node_or_null("ParallaxBackground"):
 		for layer: ParallaxLayer in $ParallaxBackground.get_children():
 			for sprite:Sprite2D in layer.get_children():
@@ -27,13 +29,12 @@ func _ready():
 	for enemy in $Enemy.get_children():
 		level_color_state_changed.connect(enemy._on_background_color_changed)
 	$Player.life_changed.connect(_on_life_changed)
-	
-	
+	Level.Game_Manager = self
+
+
 func _on_life_changed(life: int):
 	if life == 0:
 		get_tree().change_scene_to_packed(main_menu)
-	
-		
 
 func _process(delta):
 	if Input.is_action_just_pressed("switch_level_color"):

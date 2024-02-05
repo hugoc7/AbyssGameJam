@@ -22,6 +22,7 @@ white_texture = ExtResource("2_dxwi3")
 black_texture = ExtResource("3_kqqdt")
 speed = 80.0
 attack_range = 1200.0
+life = 100
 explosion_vfx = ExtResource("4_334tj")
 projectile = ExtResource("5_8l3cg")
 

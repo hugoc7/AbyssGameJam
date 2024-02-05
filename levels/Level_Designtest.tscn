@@ -25,6 +25,7 @@ size = Vector2(7656, 70)
 
 [node name="HUgo" type="Node2D"]
 script = ExtResource("1_dhjyw")
+world_rect = null
 main_menu = ExtResource("2_7e8bt")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -43,18 +44,18 @@ script = ExtResource("4_b4xrc")
 black_texture = ExtResource("5_o53hr")
 white_texture = ExtResource("3_mnh24")
 
+[node name="Moon" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer1"]
+position = Vector2(975, 117)
+scale = Vector2(4, 4)
+texture = ExtResource("7_5hsqk")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("6_poqle")
+white_texture = ExtResource("7_5hsqk")
+
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(5, 1)
 motion_scale = Vector2(0.2, 1)
-
-[node name="Moon" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(187, -198)
-scale = Vector2(4, 4)
-texture = ExtResource("6_poqle")
-region_rect = Rect2(-620.5, -250.625, 1792, 562)
-script = ExtResource("4_b4xrc")
-black_texture = ExtResource("7_5hsqk")
-white_texture = ExtResource("6_poqle")
 
 [node name="TreeVerySmall2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(721, 428)
@@ -140,6 +141,7 @@ jump_velocity = -600.0
 position = Vector2(2837, 348)
 player = NodePath("../../Player")
 speed = 100.0
+life = 10
 
 [node name="EnemyBat3" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_uj0o1")]
 position = Vector2(2756, 322)
@@ -151,39 +153,46 @@ position = Vector2(1153, 301)
 color = 1
 player = NodePath("../../Player")
 speed = 100.0
+life = 10
 
 [node name="EnemyContact" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
 position = Vector2(482, 532)
 player = NodePath("../../Player")
 attack_range = 100.0
+life = 20
 
 [node name="EnemyContact3" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
 position = Vector2(1873, 532)
 player = NodePath("../../Player")
 attack_range = 100.0
+life = 20
 
 [node name="EnemyContact2" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
 position = Vector2(-532, 532)
 color = 1
 player = NodePath("../../Player")
 attack_range = 100.0
+life = 20
 
 [node name="EnemyContact4" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
 position = Vector2(1976, 531)
 color = 1
 player = NodePath("../../Player")
 attack_range = 100.0
+life = 20
 
 [node name="EnemyContact5" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
 position = Vector2(2671, 532)
 player = NodePath("../../Player")
 attack_range = 100.0
+life = 20
 
 [node name="EnemyContact6" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
 position = Vector2(2774, 531)
 color = 1
 player = NodePath("../../Player")
 attack_range = 100.0
+life = 20
 
 [node name="HUD" parent="." instance=ExtResource("9_72y83")]
 
@@ -210,4 +219,5 @@ texture = ExtResource("11_y84o4")
 region_enabled = true
 region_rect = Rect2(-846.862, 0, 1420.86, 32)
 
+[connection signal="level_color_state_changed" from="." to="Player" method="_on_background_color_changed"]
 [connection signal="life_changed" from="Player" to="HUD" method="_on_player_life_changed"]

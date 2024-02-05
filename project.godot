@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Enums="*res://singletons/enums.gd"
+Level="*res://singletons/Level.gd"
 
 [display]
 
