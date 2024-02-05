@@ -344,7 +344,7 @@ animation = &"button_pressed"
 
 [node name="text" type="AnimatedSprite2D" parent="Credits/Node2D"]
 sprite_frames = ExtResource("5_xmjj1")
-animation = &"play_click"
+animation = &"credits_click"
 
 [node name="Quit" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
