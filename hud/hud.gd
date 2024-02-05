@@ -10,8 +10,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	var unit = Level.Game_Manager.enemy_count % 10
+	var ten = (Level.Game_Manager.enemy_count - unit) / 10
 	
+	$Panel/Panel/NumberFrame/Unit.frame = unit
+	$Panel/Panel/NumberFrame/Ten.frame = ten
+
 func _on_player_life_changed(new_value):
 	var life_nb = int(new_value/10)
 	var hearts: Array[Node] = $Panel_full.get_children()

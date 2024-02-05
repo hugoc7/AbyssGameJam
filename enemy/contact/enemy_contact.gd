@@ -42,6 +42,7 @@ func take_damage(damage_taken: int):
 func die():
 	set_animation("death")
 	$Death_SFX.play()
+	Level.Game_Manager.monster_died()
 	var die_vfx_instance = die_vfx.instantiate()
 	die_vfx_instance.position = position
 	get_parent().add_child(die_vfx_instance)

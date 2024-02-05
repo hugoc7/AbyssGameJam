@@ -30,6 +30,7 @@ func _init():
 	Level.Game_Manager = self
 
 func _ready():
+	enemy_count = $Enemy.get_children().size()
 	for enemy in $Enemy.get_children():
 		level_color_state_changed.connect(enemy._on_background_color_changed)
 	$Player.life_changed.connect(_on_life_changed)
@@ -47,9 +48,9 @@ func _process(delta):
 	if not world_rect.has_point($Player.position):
 		print_debug("Le joueur est sorti du monde. Replacer au spwan.")
 		$Player.position = $PlayerSpawn.position
-	
-	enemy_count = $Enemy.get_children().size()
-	
+
+func monster_died():
+	enemy_count -= 1
 	if enemy_count <= 0:
 		win()
 

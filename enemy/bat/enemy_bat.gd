@@ -40,6 +40,7 @@ func die():
 	set_animation("death")
 	queue_free()
 	$Death_SFX.play()
+	Level.Game_Manager.monster_died()
 	var explosion_instance = explosion_vfx.instantiate()
 	explosion_instance.position = position
 	get_parent().add_child(explosion_instance)
@@ -69,9 +70,7 @@ func _ready():
 	
 	sprite.play(sprite.animation)
 	turnaround_timer = get_tree().create_timer(0)
-	
-	
-	
+
 func _on_background_color_changed(bkg_color: Enums.LightColor):
 	match bkg_color:
 		Enums.LightColor.BLACK:
