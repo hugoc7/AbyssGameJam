@@ -1,6 +1,8 @@
-[gd_resource type="SpriteFrames" load_steps=21 format=3 uid="uid://cndm0frpp2x81"]
+[gd_resource type="SpriteFrames" load_steps=26 format=3 uid="uid://cndm0frpp2x81"]
 
+[ext_resource type="Texture2D" uid="uid://cyh4u1sf0k44k" path="res://menu/Button/Animation/Credits_Sheet.png" id="1_575ky"]
 [ext_resource type="Texture2D" uid="uid://chaxc64hfnddi" path="res://menu/Button/Animation/Play_SpriteSheet.png" id="1_xgbtm"]
+[ext_resource type="Texture2D" uid="uid://chx1d5af0uhrs" path="res://menu/Button/Animation/Credits.png" id="2_e6kiw"]
 [ext_resource type="Texture2D" uid="uid://dg84oeafdv1ji" path="res://menu/Button/Animation/Play.png" id="2_haqnb"]
 [ext_resource type="Texture2D" uid="uid://s0ic4dcyp3ia" path="res://menu/Button/Animation/Quit_SpriteSheet.png" id="3_n55ve"]
 [ext_resource type="Texture2D" uid="uid://daxhvmba7vow0" path="res://menu/Button/Animation/Quit.png" id="4_lvsuw"]
@@ -8,6 +10,18 @@
 [ext_resource type="Texture2D" uid="uid://nbm77nrpxupw" path="res://menu/Button/Animation/Retry.png" id="6_1nc53"]
 [ext_resource type="Texture2D" uid="uid://dntjfladiutyd" path="res://menu/Button/Animation/Return_SpriteSheet.png" id="7_kqssx"]
 [ext_resource type="Texture2D" uid="uid://d37gbqwxeekvd" path="res://menu/Button/Animation/Return.png" id="8_83rra"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfurg"]
+atlas = ExtResource("1_575ky")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdq5b"]
+atlas = ExtResource("1_575ky")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abpd1"]
+atlas = ExtResource("1_575ky")
+region = Rect2(256, 0, 128, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xcjsb"]
 atlas = ExtResource("1_xgbtm")
@@ -59,6 +73,28 @@ region = Rect2(256, 0, 128, 64)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfurg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdq5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abpd1")
+}],
+"loop": true,
+"name": &"credits_click",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e6kiw")
+}],
+"loop": true,
+"name": &"credits_idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xcjsb")
