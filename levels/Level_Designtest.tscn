@@ -106,7 +106,7 @@ attack_range = 100.0
 [node name="HUD" parent="." instance=ExtResource("9_72y83")]
 
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
-offset = Vector2(0, -200)
+position = Vector2(-1574, 310)
 script = ExtResource("10_nv2xi")
 target = NodePath("../Player")
 

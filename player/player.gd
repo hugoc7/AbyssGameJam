@@ -14,12 +14,18 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var life = 100
 var is_short_attack_on_cooldown = false
 var is_range_attack_on_cooldown = false
-
+var color_as_text = "white"
+var is_dying = false
 
 func take_damage(damage: int):
+	if is_dying:
+		return
+	set_animation("hit")
 	life -= damage
 	if life < 0:
 		life = 0
+		is_dying = true
+		set_animation("death")
 	emit_signal("life_changed", life)
 	
 func short_attack():
@@ -54,13 +60,20 @@ func reset_short_attack_cooldown():
 func reset_range_attack_cooldown():
 	is_range_attack_on_cooldown = false
 
+func set_animation(anim: String):
+	$Body/Sprite.animation = anim + "_" + color_as_text 
+
 func _ready():
+	set_animation("idle")
 	emit_signal("life_changed", life)
 	$ShortAttackTimer.timeout.connect(short_attack)
 	$ShortAttackCooldownTimer.timeout.connect(reset_short_attack_cooldown)
 	$RangeAttackCooldownTimer.timeout.connect(reset_range_attack_cooldown)
+	$Body/Sprite.play()
 	
 func _physics_process(delta):
+	if is_dying:
+		return
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -81,9 +94,17 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _unhandled_input(event):
+	if is_dying:
+		return
 	if event.is_action_pressed("attack_short") and not is_short_attack_on_cooldown:
 		$ShortAttackTimer.start()
+		set_animation("atk")
 	if event.is_action_pressed("attack_range") and not is_range_attack_on_cooldown:
 		range_attack()
 	if event is InputEventMouseMotion:
 		var mouse = get_global_mouse_position()
+
+
+func _on_sprite_animation_looped():
+	if not is_dying:
+		set_animation("idle")

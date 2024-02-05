@@ -20,6 +20,8 @@ var color_as_text = "white"
 @onready var sprite : AnimatedSprite2D = $Sprite
 
 func take_damage(damage_taken: int):
+	if is_dying: 
+		return
 	set_animation("hit")
 	life -= damage_taken
 	if life < 0:
