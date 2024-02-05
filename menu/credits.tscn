@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://crqw33j1ps6if"]
+
+[ext_resource type="Script" path="res://menu/credits.gd" id="1_gfrpv"]
+[ext_resource type="Texture2D" uid="uid://bh7gny0jc8oov" path="res://background/Background_Noir.png" id="2_58obn"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gfrpv")
+
+[node name="Bkg" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(1476, 76)
+scale = Vector2(4, 4)
+texture = ExtResource("2_58obn")
+region_enabled = true
+region_rect = Rect2(-482.438, -195.623, 1919.83, 427.273)
+
+[node name="Label" type="Label" parent="Bkg"]
+offset_left = -250.5
+offset_top = -6.75
+offset_right = -210.5
+offset_bottom = 16.25
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = -50.5
+offset_right = 50.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Amaury Launay (Amo)
+Damien Soustre (Laitherha)
+Elian Soustre (Nostro)
+Hugo Caroubalos (Diplododicus)
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -251.0
+offset_right = 247.0
+offset_bottom = -185.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "CREDITS"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = -88.0
+offset_right = 35.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Retour"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

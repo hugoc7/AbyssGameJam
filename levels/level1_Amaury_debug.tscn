@@ -17,6 +17,7 @@ gradient = SubResource("Gradient_p06mu")
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_a2u5j")
+world_rect = null
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
 position = Vector2(120, 390)

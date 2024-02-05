@@ -143,7 +143,7 @@ speed = 100.0
 life = 10
 
 [node name="EnemyBat3" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_uj0o1")]
-position = Vector2(2667, 376)
+position = Vector2(2756, 322)
 player = NodePath("../../Player")
 speed = 100.0
 

@@ -27,6 +27,7 @@ size = Vector2(2842, 65.5)
 [node name="levelAmaury" type="Node2D"]
 rotation = 0.0047664
 script = ExtResource("1_mkhcp")
+world_rect = null
 main_menu = ExtResource("2_p8tfw")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
