@@ -1,0 +1,41 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://huapt4q2gmhx"]
+
+[ext_resource type="Texture2D" uid="uid://bplxd6sf5ukd" path="res://menu/Button/Animation/Button.png" id="1_6oc4b"]
+[ext_resource type="Texture2D" uid="uid://b84uc3tkhksgr" path="res://menu/Button/Animation/Button_SpriteSheet.png" id="2_bnaj0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfmoh"]
+atlas = ExtResource("2_bnaj0")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8y7jm"]
+atlas = ExtResource("2_bnaj0")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yq81y"]
+atlas = ExtResource("2_bnaj0")
+region = Rect2(256, 0, 128, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6oc4b")
+}],
+"loop": true,
+"name": &"button_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfmoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8y7jm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yq81y")
+}],
+"loop": true,
+"name": &"button_pressed",
+"speed": 5.0
+}]
