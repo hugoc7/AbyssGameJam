@@ -219,5 +219,4 @@ texture = ExtResource("11_y84o4")
 region_enabled = true
 region_rect = Rect2(-846.862, 0, 1420.86, 32)
 
-[connection signal="level_color_state_changed" from="." to="Player" method="_on_background_color_changed"]
 [connection signal="life_changed" from="Player" to="HUD" method="_on_player_life_changed"]
