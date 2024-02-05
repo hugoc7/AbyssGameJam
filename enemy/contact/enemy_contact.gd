@@ -3,6 +3,8 @@ extends Area2D
 
 class_name EnemyContact
 
+signal died()
+
 @export var color = Enums.LightColor.WHITE
 @export var white_texture : Texture2D = null
 @export var black_texture : Texture2D = null

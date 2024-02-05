@@ -3,6 +3,7 @@ extends Node
 @export var world_rect : Rect2 = Rect2(-2000, -2000, 4000, 4000)
 @export var main_menu : PackedScene = null
 
+@export var enemy_count = 0
 
 signal level_color_state_changed(color: Enums.LightColor)
 
@@ -36,7 +37,7 @@ func _ready():
 
 func _on_life_changed(life: int):
 	if life == 0:
-		get_tree().change_scene_to_packed(main_menu)
+		get_tree().change_scene_to_file("res://menu/gameover.tscn")
 
 func _process(delta):
 	if Input.is_action_just_pressed("switch_level_color"):
@@ -46,4 +47,11 @@ func _process(delta):
 	if not world_rect.has_point($Player.position):
 		print_debug("Le joueur est sorti du monde. Replacer au spwan.")
 		$Player.position = $PlayerSpawn.position
-		
+	
+	enemy_count = $Enemy.get_children().size()
+	
+	if enemy_count <= 0:
+		win()
+
+func win():
+	get_tree().change_scene_to_file("res://menu/victory.tscn")
