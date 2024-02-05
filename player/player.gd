@@ -96,7 +96,6 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		
-	print_debug("velocity:", velocity.x)
 	update_player_state(is_on_floor(), direction, velocity.x)
 
 	move_and_slide()

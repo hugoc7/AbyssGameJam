@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4yhk5o1gop6"]
+[gd_scene load_steps=12 format=3 uid="uid://b4yhk5o1gop6"]
 
 [ext_resource type="Script" path="res://game_manager/game_manager.gd" id="1_tdwjc"]
 [ext_resource type="PackedScene" uid="uid://bmul6447vnsfc" path="res://menu/main_menu.tscn" id="2_gjmx3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ck8o5v52wgvf6" path="res://player/player.tscn" id="5_d21w1"]
 [ext_resource type="PackedScene" uid="uid://cbe8prr8x1r0m" path="res://enemy/contact/enemy_contact.tscn" id="6_l8te7"]
 [ext_resource type="PackedScene" uid="uid://85ag7xxy5r67" path="res://hud/hud.tscn" id="7_pvkj3"]
+[ext_resource type="PackedScene" uid="uid://dkdfa3qyl3g7c" path="res://enemy/bat/enemy_bat.tscn" id="8_kusof"]
 [ext_resource type="Script" path="res://camera/camera.gd" id="8_s1ufl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w26nm"]
@@ -67,5 +68,8 @@ life = 30
 position = Vector2(578, 332)
 script = ExtResource("8_s1ufl")
 target = NodePath("../Player")
+
+[node name="EnemyBat" parent="." instance=ExtResource("8_kusof")]
+position = Vector2(440, 299)
 
 [connection signal="life_changed" from="Player" to="HUD" method="_on_player_life_changed"]
