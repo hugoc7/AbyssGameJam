@@ -105,7 +105,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_004ln")
 }],
-"loop": true,
+"loop": false,
 "name": &"play_click",
 "speed": 5.0
 }, {
@@ -113,7 +113,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_haqnb")
 }],
-"loop": true,
+"loop": false,
 "name": &"play_idle",
 "speed": 5.0
 }, {
@@ -127,7 +127,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r4lwr")
 }],
-"loop": true,
+"loop": false,
 "name": &"quit_click",
 "speed": 5.0
 }, {
@@ -135,7 +135,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_lvsuw")
 }],
-"loop": true,
+"loop": false,
 "name": &"quit_idle",
 "speed": 5.0
 }, {
@@ -149,7 +149,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jwj0v")
 }],
-"loop": true,
+"loop": false,
 "name": &"retry_click",
 "speed": 5.0
 }, {
@@ -157,7 +157,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_1nc53")
 }],
-"loop": true,
+"loop": false,
 "name": &"retry_idle",
 "speed": 5.0
 }, {
@@ -171,7 +171,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_43k4m")
 }],
-"loop": true,
+"loop": false,
 "name": &"return_click",
 "speed": 5.0
 }, {
@@ -179,7 +179,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_83rra")
 }],
-"loop": true,
+"loop": false,
 "name": &"return_idle",
 "speed": 5.0
 }]

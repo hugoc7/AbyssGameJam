@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://b217tue4c8p5l"]
+[gd_scene load_steps=3 format=3 uid="uid://b217tue4c8p5l"]
 
+[ext_resource type="Script" path="res://musik/music.gd" id="1_e8v68"]
 [ext_resource type="AudioStream" uid="uid://db6a5vaf8f435" path="res://musik/vivaldi.mp3" id="1_na736"]
 
 [node name="Music" type="Node"]
+script = ExtResource("1_e8v68")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_na736")
 volume_db = -9.407
 autoplay = true

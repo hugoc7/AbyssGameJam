@@ -1,8 +1,10 @@
-[gd_scene load_steps=43 format=3 uid="uid://bmul6447vnsfc"]
+[gd_scene load_steps=45 format=3 uid="uid://bmul6447vnsfc"]
 
 [ext_resource type="Texture2D" uid="uid://cct0vdyr7s1xl" path="res://menu/MainTitle-Sheet.png" id="1_7v2f3"]
 [ext_resource type="Script" path="res://menu/main_menu.gd" id="1_8so3v"]
 [ext_resource type="Texture2D" uid="uid://bh7gny0jc8oov" path="res://background/Background_Noir.png" id="2_u2xsf"]
+[ext_resource type="SpriteFrames" uid="uid://huapt4q2gmhx" path="res://menu/Button/Animation/Button_SpriteSheet.tres" id="4_xxm1f"]
+[ext_resource type="SpriteFrames" uid="uid://cndm0frpp2x81" path="res://menu/Button/Animation/Texte_SpriteSheet.tres" id="5_xmjj1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g1g1l"]
 atlas = ExtResource("1_7v2f3")
@@ -300,29 +302,75 @@ position = Vector2(588, 200)
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_f3gvq")
 
-[node name="HBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 404.0
-offset_top = 348.0
-offset_right = 828.0
-offset_bottom = 644.0
-alignment = 1
-
-[node name="Play" type="Button" parent="HBoxContainer"]
+[node name="Play" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+offset_left = 491.0
+offset_top = 396.0
+offset_right = 723.0
+offset_bottom = 449.0
 theme_override_font_sizes/font_size = 32
 text = "Play"
 
-[node name="Credits" type="Button" parent="HBoxContainer"]
+[node name="Node2D" type="Node2D" parent="Play"]
+position = Vector2(113, -4)
+scale = Vector2(4, 4)
+
+[node name="fond" type="AnimatedSprite2D" parent="Play/Node2D"]
+sprite_frames = ExtResource("4_xxm1f")
+animation = &"button_pressed"
+
+[node name="text" type="AnimatedSprite2D" parent="Play/Node2D"]
+sprite_frames = ExtResource("5_xmjj1")
+animation = &"play_click"
+
+[node name="Credits" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+offset_left = 494.0
+offset_top = 479.0
+offset_right = 726.0
+offset_bottom = 532.0
 theme_override_font_sizes/font_size = 32
 text = "Credits"
 
-[node name="Quit" type="Button" parent="HBoxContainer"]
+[node name="Node2D" type="Node2D" parent="Credits"]
+position = Vector2(113, -4)
+scale = Vector2(4, 4)
+
+[node name="fond" type="AnimatedSprite2D" parent="Credits/Node2D"]
+sprite_frames = ExtResource("4_xxm1f")
+animation = &"button_pressed"
+
+[node name="text" type="AnimatedSprite2D" parent="Credits/Node2D"]
+sprite_frames = ExtResource("5_xmjj1")
+animation = &"play_click"
+
+[node name="Quit" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+offset_left = 492.0
+offset_top = 563.0
+offset_right = 724.0
+offset_bottom = 616.0
 theme_override_font_sizes/font_size = 32
 text = "Quit"
 
-[connection signal="pressed" from="HBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="HBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Node2D" type="Node2D" parent="Quit"]
+position = Vector2(113, -4)
+scale = Vector2(4, 4)
+
+[node name="fond" type="AnimatedSprite2D" parent="Quit/Node2D"]
+sprite_frames = ExtResource("4_xxm1f")
+animation = &"button_pressed"
+
+[node name="text" type="AnimatedSprite2D" parent="Quit/Node2D"]
+sprite_frames = ExtResource("5_xmjj1")
+animation = &"quit_click"
+
+[connection signal="button_down" from="Play" to="." method="_on_play_button_down"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="button_down" from="Credits" to="." method="_on_credits_button_down"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="button_down" from="Quit" to="." method="_on_quit_button_down"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
