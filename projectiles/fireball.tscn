@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ndaq34x515wt"]
 
 [ext_resource type="Script" path="res://projectiles/fireball.gd" id="1_8lcjr"]
-[ext_resource type="Texture2D" uid="uid://pvl07icxk82o" path="res://projectiles/Fireball_Blanc.png" id="1_usawb"]
+[ext_resource type="SpriteFrames" uid="uid://b4nopqeo28se1" path="res://projectiles/Animation/Fireball_SpriteFrame.tres" id="2_6bwou"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8xrtc"]
 radius = 16.0
@@ -16,14 +16,15 @@ script = ExtResource("1_8lcjr")
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_8xrtc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(4, 4)
-texture = ExtResource("1_usawb")
-
 [node name="DestroyTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("2_6bwou")
+animation = &"loop_white"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

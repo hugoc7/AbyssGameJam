@@ -16,6 +16,8 @@ class_name EnemyContact
 
 var is_in_cooldown = false
 var is_dying = false
+var is_attacking = false
+var is_attacked = false
 var color_as_text = "white" 
 @onready var sprite : AnimatedSprite2D = $Sprite
 
@@ -23,6 +25,7 @@ func take_damage(damage_taken: int):
 	if is_dying: 
 		return
 	set_animation("hit")
+	is_attacked = true
 	life -= damage_taken
 	if life < 0:
 		life = 0
@@ -68,15 +71,17 @@ func _process(delta):
 		if sqr_dist_to_player < attack_range*attack_range and not is_in_cooldown:
 			is_in_cooldown = true
 			set_animation("atk")
+			is_attacking = true
 			$Effort_SFX.play()
 			$AttackTimer.start()
 		elif sqr_dist_to_player > purchase_distance.x * purchase_distance.x:
-			var direction = sign(player.global_position.x - global_position.x)
-			global_position.x += direction * speed * delta
-			set_animation("run")
-			#if $Sprite2D.scale.x * direction < 0:
-			sprite.scale.x = direction * abs(sprite.scale.x)
-		else:
+			if not is_attacked and not is_attacking:
+				var direction = sign(player.global_position.x - global_position.x)
+				global_position.x += direction * speed * delta
+				set_animation("run")
+				#if $Sprite2D.scale.x * direction < 0:
+				sprite.scale.x = direction * abs(sprite.scale.x)
+		elif not is_attacked and not is_attacking:
 			set_animation("idle")
 
 func _attack_player():
@@ -92,3 +97,7 @@ func _on_cooldown_timeout():
 func _on_sprite_animation_loop():
 	if is_dying:
 		queue_free()
+	if is_attacking:
+		is_attacking = false
+	if is_attacked:
+		is_attacked = false

@@ -51,7 +51,7 @@ func fire_projectile():
 	projectile_instance.damage = self.damage
 	projectile_instance.collision_layer = 0
 	projectile_instance.collision_mask = 9
-	projectile_instance.launch(position, projectile_speed*global_position.direction_to(player.global_position))
+	projectile_instance.launch(position, projectile_speed*global_position.direction_to(player.global_position), color_as_text)
 	get_parent().add_child(projectile_instance)
 
 func _ready():

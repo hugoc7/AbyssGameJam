@@ -1,0 +1,14 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://g6qm4s3atdvn"]
+
+[ext_resource type="AudioStream" uid="uid://7ekwx3f8axt3" path="res://player/sound/Character_HitSFX1.wav" id="1_dmtbi"]
+[ext_resource type="AudioStream" uid="uid://0qdm27i4hq7q" path="res://player/sound/Character_HitSFX2.wav" id="2_kjrhf"]
+[ext_resource type="AudioStream" uid="uid://bphdvix62d0pf" path="res://player/sound/Character_HitSFX3.wav" id="3_fatxg"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_dmtbi")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_kjrhf")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_fatxg")
+stream_2/weight = 1.0

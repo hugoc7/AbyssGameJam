@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://cbe8prr8x1r0m"]
+[gd_scene load_steps=87 format=3 uid="uid://cbe8prr8x1r0m"]
 
 [ext_resource type="Script" path="res://enemy/contact/enemy_contact.gd" id="1_51gnd"]
 [ext_resource type="Texture2D" uid="uid://cj5qks436wjqt" path="res://enemy/contact/Zombie_Noir.png" id="3_gj8y7"]
@@ -111,14 +111,6 @@ region = Rect2(128, 0, 32, 32)
 atlas = ExtResource("7_mp6yn")
 region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gcl47"]
-atlas = ExtResource("7_mp6yn")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8mw41"]
-atlas = ExtResource("7_mp6yn")
-region = Rect2(224, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_e10nq"]
 atlas = ExtResource("8_f52yf")
 region = Rect2(0, 0, 32, 32)
@@ -142,14 +134,6 @@ region = Rect2(128, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xaem7"]
 atlas = ExtResource("8_f52yf")
 region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wq0ib"]
-atlas = ExtResource("8_f52yf")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qvot7"]
-atlas = ExtResource("8_f52yf")
-region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rtxtp"]
 atlas = ExtResource("9_cnytn")
@@ -379,12 +363,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3oq0g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gcl47")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8mw41")
 }],
 "loop": true,
 "name": &"death_black",
@@ -408,12 +386,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xaem7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wq0ib")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qvot7")
 }],
 "loop": true,
 "name": &"death_white",
@@ -591,7 +563,7 @@ shape = SubResource("CapsuleShape2D_okoi0")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_xi85a")
-animation = &"idle_white"
+animation = &"atk_black"
 
 [node name="CooldownTimer" type="Timer" parent="."]
 one_shot = true
@@ -608,5 +580,7 @@ stream = ExtResource("16_j4rv1")
 
 [node name="Effort_SFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_mieio")
+
+[node name="AttackedTimer" type="Timer" parent="."]
 
 [connection signal="animation_looped" from="Sprite" to="." method="_on_sprite_animation_loop"]

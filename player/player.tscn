@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://ck8o5v52wgvf6"]
+[gd_scene load_steps=115 format=3 uid="uid://ck8o5v52wgvf6"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_esoqt"]
 [ext_resource type="PackedScene" uid="uid://ndaq34x515wt" path="res://projectiles/fireball.tscn" id="2_8pqtj"]
@@ -16,6 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://ciutfaep273ha" path="res://player/Animations/Character_Blanc_Jump.png" id="12_h7mbt"]
 [ext_resource type="Texture2D" uid="uid://dafoa2nmvw6u3" path="res://player/Animations/Character_Noir_Running.png" id="13_aag4i"]
 [ext_resource type="Texture2D" uid="uid://c4ffk268da3wk" path="res://player/Animations/Character_Blanc_Running.png" id="14_dcvsi"]
+[ext_resource type="AudioStream" uid="uid://s4rq5kdjho0g" path="res://player/sound/Character_DeathSFX.wav" id="16_x4a8t"]
+[ext_resource type="AudioStream" uid="uid://ciu74snxcg8ok" path="res://player/sound/Character_EffortSFX.tres" id="17_rfjf8"]
+[ext_resource type="AudioStream" uid="uid://g6qm4s3atdvn" path="res://player/sound/Character_HitSFX.tres" id="18_papte"]
 
 [sub_resource type="Gradient" id="Gradient_o247o"]
 colors = PackedColorArray(1, 1, 0.317647, 1, 0, 0, 0, 1)
@@ -752,7 +755,7 @@ position = Vector2(52, -63)
 position = Vector2(133, -88)
 scale = Vector2(4.0625, 6.09375)
 sprite_frames = SubResource("SpriteFrames_ayksq")
-animation = &"atk_white"
+animation = &"death_white"
 
 [node name="AttackArea" type="Area2D" parent="Body"]
 scale = Vector2(0.490234, 1)
@@ -781,5 +784,14 @@ stream = ExtResource("4_b1xjc")
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="DeathSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_x4a8t")
+
+[node name="EffortSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_rfjf8")
+
+[node name="HitSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_papte")
 
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

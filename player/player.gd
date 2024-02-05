@@ -20,6 +20,13 @@ var state = IDLE
 var is_invincible = false
 const FLOAT_PRECISION = 0.0001
 
+func _on_background_color_changed(bkg_color: Enums.LightColor):
+	match bkg_color :
+		Enums.LightColor.BLACK:
+			color_as_text = "white"
+		Enums.LightColor.WHITE:
+			color_as_text = "black" 
+
 func take_damage(damage: int):
 	if state == DYING:
 		return
@@ -27,15 +34,19 @@ func take_damage(damage: int):
 	if life < 0:
 		life = 0
 		state = DYING
+		$DeathSFX.play()
+		print_debug("Die")
 	else:
 		is_invincible = true
 		$InvincibilityTimer.start()
+		$HitSFX.play()
 	emit_signal("life_changed", life)
 	
 func short_attack():
 	var other_areas: Array[Area2D] = $Body/AttackArea.get_overlapping_areas()
 	is_short_attack_on_cooldown = true
 	$ShortAttackCooldownTimer.start()
+	$EffortSFX.play()
 	if other_areas.is_empty():
 		$SwordMissSound.play()
 	else: 
@@ -51,7 +62,7 @@ func range_attack():
 	var fireball_real_speed = fireball_speed
 	if direction.x * velocity.x > 0:
 		fireball_real_speed += abs(velocity.x) 
-	fireball_instance.launch($Body/ProjectileSpawn.global_position, direction*fireball_real_speed)
+	fireball_instance.launch($Body/ProjectileSpawn.global_position, direction*fireball_real_speed, color_as_text)
 	get_parent().add_child(fireball_instance)
 	is_range_attack_on_cooldown = true
 	$RangeAttackCooldownTimer.start()

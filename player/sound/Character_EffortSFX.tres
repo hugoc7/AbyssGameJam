@@ -1,0 +1,14 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://ciu74snxcg8ok"]
+
+[ext_resource type="AudioStream" uid="uid://vosm1w5oxg4f" path="res://player/sound/Character_EffortSFX2.wav" id="1_22o44"]
+[ext_resource type="AudioStream" uid="uid://0asei5am641h" path="res://player/sound/Character_EffortSFX3.wav" id="2_3hly1"]
+[ext_resource type="AudioStream" uid="uid://clbv7odja74x8" path="res://player/sound/Character_EffortSFX4.wav" id="3_1avyo"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_22o44")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_3hly1")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_1avyo")
+stream_2/weight = 1.0

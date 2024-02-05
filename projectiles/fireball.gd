@@ -5,11 +5,12 @@ class_name Projectile
 var speed = Vector2.ZERO
 var damage = 100
 
-
-func launch(pos: Vector2, speed: Vector2):
+func launch(pos: Vector2, speed: Vector2, color: String):
 	self.position = pos
 	self.speed = speed
-	rotation = Vector2.RIGHT.angle_to(speed)	
+	rotation = Vector2.RIGHT.angle_to(speed)
+	$Sprite.animation = "loop_" + color
+	$Sprite.play()
 
 func destroy():
 	queue_free()
