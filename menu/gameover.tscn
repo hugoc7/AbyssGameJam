@@ -322,9 +322,9 @@ texture = ExtResource("4_sagni")
 [node name="Quit" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 492.0
+offset_left = 149.0
 offset_top = 563.0
-offset_right = 724.0
+offset_right = 381.0
 offset_bottom = 616.0
 theme_override_font_sizes/font_size = 32
 text = "Quit"
@@ -341,5 +341,53 @@ animation = &"button_pressed"
 sprite_frames = ExtResource("6_vr73i")
 animation = &"retry_click"
 
-[connection signal="button_down" from="Quit" to="." method="_on_quit_button_down"]
+[node name="Credits" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 817.0
+offset_top = 563.0
+offset_right = 1049.0
+offset_bottom = 616.0
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[node name="Node2D" type="Node2D" parent="Credits"]
+position = Vector2(113, -4)
+scale = Vector2(4, 4)
+
+[node name="fond" type="AnimatedSprite2D" parent="Credits/Node2D"]
+sprite_frames = ExtResource("5_juu0j")
+animation = &"button_pressed"
+
+[node name="text" type="AnimatedSprite2D" parent="Credits/Node2D"]
+sprite_frames = ExtResource("6_vr73i")
+animation = &"credits_click"
+
+[node name="Return" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 492.0
+offset_top = 563.0
+offset_right = 724.0
+offset_bottom = 616.0
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[node name="Node2D" type="Node2D" parent="Return"]
+position = Vector2(113, -4)
+scale = Vector2(4, 4)
+
+[node name="fond" type="AnimatedSprite2D" parent="Return/Node2D"]
+sprite_frames = ExtResource("5_juu0j")
+animation = &"button_pressed"
+
+[node name="text" type="AnimatedSprite2D" parent="Return/Node2D"]
+sprite_frames = ExtResource("6_vr73i")
+animation = &"return_click"
+
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="animation_finished" from="Quit/Node2D/text" to="." method="_on_retry_animation_finished"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="animation_finished" from="Credits/Node2D/text" to="." method="_on_credits_animation_finished"]
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
+[connection signal="animation_finished" from="Return/Node2D/text" to="." method="_on_return_animation_finished"]
