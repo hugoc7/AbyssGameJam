@@ -6,3 +6,7 @@ func _unhandled_input(event):
 		$player.stream_paused = not $player.stream_paused
 			
 		
+
+
+func _on_player_finished():
+	$player.play()

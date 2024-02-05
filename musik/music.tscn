@@ -10,3 +10,5 @@ script = ExtResource("1_e8v68")
 stream = ExtResource("1_na736")
 volume_db = -9.407
 autoplay = true
+
+[connection signal="finished" from="player" to="." method="_on_player_finished"]

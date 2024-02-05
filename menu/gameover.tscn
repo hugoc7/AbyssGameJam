@@ -321,6 +321,7 @@ texture = ExtResource("4_sagni")
 
 [node name="Quit" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 492.0
 offset_top = 563.0
 offset_right = 724.0

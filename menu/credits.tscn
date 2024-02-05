@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://crqw33j1ps6if"]
+[gd_scene load_steps=5 format=3 uid="uid://crqw33j1ps6if"]
 
 [ext_resource type="Script" path="res://menu/credits.gd" id="1_gfrpv"]
 [ext_resource type="Texture2D" uid="uid://bh7gny0jc8oov" path="res://background/Background_Noir.png" id="2_58obn"]
+[ext_resource type="SpriteFrames" uid="uid://huapt4q2gmhx" path="res://menu/Button/Animation/Button_SpriteSheet.tres" id="3_2qvqc"]
+[ext_resource type="SpriteFrames" uid="uid://cndm0frpp2x81" path="res://menu/Button/Animation/Texte_SpriteSheet.tres" id="4_dgjdu"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -33,10 +35,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.5
-offset_top = -50.5
-offset_right = 50.5
-offset_bottom = 50.5
+offset_left = -400.0
+offset_top = -142.0
+offset_right = 400.0
+offset_bottom = 325.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
@@ -44,40 +46,44 @@ text = "Amaury Launay (Amo)
 Damien Soustre (Laitherha)
 Elian Soustre (Nostro)
 Hugo Caroubalos (Diplododicus)
+Music : 
+Vivaldi \"L'Inverno, Op. 8 No. 4\" by George Pollen
 "
 horizontal_alignment = 1
+autowrap_mode = 2
 
-[node name="Label2" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -251.0
-offset_right = 247.0
-offset_bottom = -185.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "CREDITS"
-horizontal_alignment = 1
-
-[node name="Back" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -26.0
-offset_top = -88.0
-offset_right = 35.0
-offset_bottom = -57.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Quit" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 469.0
+offset_top = 563.0
+offset_right = 701.0
+offset_bottom = 616.0
 theme_override_font_sizes/font_size = 32
-text = "Retour"
+text = "Quit"
 
-[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[node name="Node2D" type="Node2D" parent="Quit"]
+position = Vector2(113, -4)
+scale = Vector2(4, 4)
+
+[node name="fond" type="AnimatedSprite2D" parent="Quit/Node2D"]
+sprite_frames = ExtResource("3_2qvqc")
+animation = &"button_pressed"
+
+[node name="text" type="AnimatedSprite2D" parent="Quit/Node2D"]
+sprite_frames = ExtResource("4_dgjdu")
+animation = &"return_click"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(580, 22)
+scale = Vector2(10, 10)
+
+[node name="fond" type="AnimatedSprite2D" parent="Node2D"]
+sprite_frames = ExtResource("3_2qvqc")
+animation = &"button_pressed"
+
+[node name="text" type="AnimatedSprite2D" parent="Node2D"]
+sprite_frames = ExtResource("4_dgjdu")
+animation = &"credits_click"
+
+[connection signal="button_down" from="Quit" to="." method="_on_quit_button_down"]
+[connection signal="pressed" from="Quit" to="." method="_on_back_pressed"]
