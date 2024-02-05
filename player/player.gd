@@ -8,6 +8,7 @@ signal life_changed(new_value: int)
 @export var fireball : PackedScene
 @export var fireball_speed = 400.0
 
+enum {IDLE, RUN, ATTACK, DYING, JUMP}
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -15,22 +16,24 @@ var life = 100
 var is_short_attack_on_cooldown = false
 var is_range_attack_on_cooldown = false
 var color_as_text = "white"
-var is_dying = false
+var state = IDLE
+var is_invincible = false
+const FLOAT_PRECISION = 0.0001
 
 func take_damage(damage: int):
-	if is_dying:
+	if state == DYING:
 		return
-	set_animation("hit")
 	life -= damage
 	if life < 0:
 		life = 0
-		is_dying = true
-		set_animation("death")
+		state = DYING
+	else:
+		is_invincible = true
+		$InvincibilityTimer.start()
 	emit_signal("life_changed", life)
 	
 func short_attack():
 	var other_areas: Array[Area2D] = $Body/AttackArea.get_overlapping_areas()
-	print_debug("player short atk")	
 	is_short_attack_on_cooldown = true
 	$ShortAttackCooldownTimer.start()
 	if other_areas.is_empty():
@@ -64,15 +67,15 @@ func set_animation(anim: String):
 	$Body/Sprite.animation = anim + "_" + color_as_text 
 
 func _ready():
-	set_animation("idle")
 	emit_signal("life_changed", life)
 	$ShortAttackTimer.timeout.connect(short_attack)
 	$ShortAttackCooldownTimer.timeout.connect(reset_short_attack_cooldown)
 	$RangeAttackCooldownTimer.timeout.connect(reset_range_attack_cooldown)
 	$Body/Sprite.play()
+	$Body/Sprite.animation_looped.connect(_on_sprite_animation_looped)
 	
 func _physics_process(delta):
-	if is_dying:
+	if state == DYING:
 		return
 	# Add the gravity.
 	if not is_on_floor():
@@ -80,31 +83,67 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity
-
+		if state == IDLE or state == RUN:
+			velocity.y = jump_velocity
+			
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * speed
-		$Body.scale.x = sign(direction)
+	if abs(direction) > FLOAT_PRECISION:
+		if state == IDLE or state == RUN or state == JUMP:
+			velocity.x = direction * speed
+			$Body.scale.x = sign(direction)
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
+		
+	print_debug("velocity:", velocity.x)
+	update_player_state(is_on_floor(), direction, velocity.x)
 
 	move_and_slide()
 
+#calulate new player state
+func update_player_state(is_on_floor: bool, direction_input: float, velocity_x: float):
+	if state != ATTACK or is_invincible:
+		if not is_on_floor:
+			state = JUMP
+		else:
+			if abs(direction_input) > FLOAT_PRECISION and abs(velocity_x) > FLOAT_PRECISION:
+				state = RUN
+			else:
+				state = IDLE
+	
+func _process(delta):
+	#set animation
+	if is_invincible:
+		set_animation("hit")
+	else:
+		match state:
+			IDLE:
+				set_animation("idle")
+			ATTACK:
+				set_animation("atk")
+			RUN:
+				set_animation("run")
+			JUMP:
+				set_animation("jump")
+			DYING:
+				set_animation("death")
+		
+
 func _unhandled_input(event):
-	if is_dying:
+	if state == DYING:
 		return
 	if event.is_action_pressed("attack_short") and not is_short_attack_on_cooldown:
 		$ShortAttackTimer.start()
-		set_animation("atk")
+		state = ATTACK
 	if event.is_action_pressed("attack_range") and not is_range_attack_on_cooldown:
 		range_attack()
-	if event is InputEventMouseMotion:
-		var mouse = get_global_mouse_position()
+
+
+func _on_invincibility_timer_timeout():
+	is_invincible = false
 
 
 func _on_sprite_animation_looped():
-	if not is_dying:
-		set_animation("idle")
+	if state == ATTACK:
+		state = IDLE

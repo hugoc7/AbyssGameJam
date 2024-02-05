@@ -781,4 +781,7 @@ stream = ExtResource("3_kixs8")
 [node name="SwordHitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_b1xjc")
 
-[connection signal="animation_looped" from="Body/Sprite" to="." method="_on_sprite_animation_looped"]
+[node name="InvincibilityTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
