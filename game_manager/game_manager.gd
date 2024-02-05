@@ -25,11 +25,13 @@ func _switch_color():
 	#$ParallaxBackground/ParallaxLayer/Background.update_color(level_color_state)
 	emit_signal("level_color_state_changed", level_color_state)
 
+func _init():
+	Level.Game_Manager = self
+
 func _ready():
 	for enemy in $Enemy.get_children():
 		level_color_state_changed.connect(enemy._on_background_color_changed)
 	$Player.life_changed.connect(_on_life_changed)
-	Level.Game_Manager = self
 
 
 func _on_life_changed(life: int):

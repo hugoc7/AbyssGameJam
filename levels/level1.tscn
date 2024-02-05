@@ -17,7 +17,6 @@ gradient = SubResource("Gradient_p06mu")
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_et40t")
-world_rect = null
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
 position = Vector2(120, 390)
@@ -47,10 +46,16 @@ position = Vector2(136, 489)
 [node name="EnemyContact" parent="Enemy" instance=ExtResource("5_mowys")]
 position = Vector2(843, 262)
 life = 200
+shielded = null
+shield_health = null
+shield_color = null
 
 [node name="EnemyContact2" parent="Enemy" instance=ExtResource("5_mowys")]
 position = Vector2(518, 307)
 color = 1
+shielded = null
+shield_health = null
+shield_color = null
 
 [node name="HUD" parent="." instance=ExtResource("7_vfnx0")]
 

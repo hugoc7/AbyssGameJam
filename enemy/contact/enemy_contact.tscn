@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://cbe8prr8x1r0m"]
+[gd_scene load_steps=88 format=3 uid="uid://cbe8prr8x1r0m"]
 
 [ext_resource type="Script" path="res://enemy/contact/enemy_contact.gd" id="1_51gnd"]
 [ext_resource type="Texture2D" uid="uid://cj5qks436wjqt" path="res://enemy/contact/Zombie_Noir.png" id="3_gj8y7"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://d0qhw2db81mnm" path="res://enemy/contact/SFX/Zombie_DeathSFX.tres" id="15_eqqxh"]
 [ext_resource type="AudioStream" uid="uid://q5phd7r6pldm" path="res://enemy/contact/SFX/Zombie_HitSFX.tres" id="16_j4rv1"]
 [ext_resource type="AudioStream" uid="uid://8a43a8tg3dmk" path="res://enemy/contact/SFX/Zombie_EffortSFX.tres" id="16_mieio"]
+[ext_resource type="PackedScene" uid="uid://b1q47a4hjg4jq" path="res://enemy/Shield/Shield.tscn" id="18_wa0yc"]
 
 [sub_resource type="Gradient" id="Gradient_auxh5"]
 colors = PackedColorArray(1, 1, 0.317647, 1, 0, 0, 0, 1)
@@ -547,6 +548,9 @@ script = ExtResource("1_51gnd")
 white_texture = ExtResource("4_a1kmb")
 black_texture = ExtResource("3_gj8y7")
 life = 10
+shielded = null
+shield_health = null
+shield_color = null
 die_vfx = ExtResource("4_wrjxc")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -560,11 +564,6 @@ height = 100.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 14)
 shape = SubResource("CapsuleShape2D_okoi0")
-
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_xi85a")
-animation = &"atk_black"
 
 [node name="CooldownTimer" type="Timer" parent="."]
 one_shot = true
@@ -583,5 +582,15 @@ stream = ExtResource("16_j4rv1")
 stream = ExtResource("16_mieio")
 
 [node name="AttackedTimer" type="Timer" parent="."]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.5)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_xi85a")
+animation = &"idle_white"
+
+[node name="Shield" parent="." instance=ExtResource("18_wa0yc")]
+position = Vector2(-1, 13)
+scale = Vector2(4, 4)
 
 [connection signal="animation_looped" from="Sprite" to="." method="_on_sprite_animation_loop"]

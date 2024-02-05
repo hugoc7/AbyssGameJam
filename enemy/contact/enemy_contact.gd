@@ -12,6 +12,9 @@ class_name EnemyContact
 @export var damage : int = 10
 @export var attack_range : float = 200
 @export var life = 20
+@export var shielded = false
+@export var shield_health = 10
+@export var shield_color = Enums.LightColor.WHITE
 @export var die_vfx : PackedScene
 
 var is_in_cooldown = false
@@ -20,6 +23,7 @@ var is_attacking = false
 var is_attacked = false
 var color_as_text = "white" 
 @onready var sprite : AnimatedSprite2D = $Sprite
+@onready var shield = $Shield
 
 func take_damage(damage_taken: int):
 	if is_dying: 
@@ -56,10 +60,12 @@ func _ready():
 		set_process(false)
 		return
 	
+	if shielded:
+		shield._create_shield(shield_health, shield_color)
+	
 	sprite.play(sprite.animation)
 	$CooldownTimer.timeout.connect(_on_cooldown_timeout)
 	$AttackTimer.timeout.connect(_attack_player)
-		
 
 func _on_background_color_changed(bkg_color: Enums.LightColor):
 	match bkg_color:

@@ -30,7 +30,10 @@ func _on_background_color_changed(bkg_color: Enums.LightColor):
 func take_damage(damage: int):
 	if state == DYING:
 		return
-	life -= damage
+	
+	if not is_invincible:
+		life -= damage
+	
 	if life < 0:
 		life = 0
 		state = DYING
@@ -49,13 +52,22 @@ func short_attack():
 	$EffortSFX.play()
 	if other_areas.is_empty():
 		$SwordMissSound.play()
-	else: 
-		$SwordHitSound.play()
+	
 	
 	for area in other_areas:
 		if area.has_method("take_damage"):
-			if area.color_as_text == color_as_text :
+			if area.has_node("Shield"):
+				if area.shield.enabled == true:
+					if area.shield.color_as_text == color_as_text:
+						area.shield.take_damage(damage)
+					else:
+						$ShieldHitSFX.play()
+				elif area.color_as_text == color_as_text :
+					area.take_damage(damage)
+					$SwordHitSound.play()
+			elif area.color_as_text == color_as_text :
 				area.take_damage(damage)
+				$SwordHitSound.play()
 			
 func range_attack():
 	var fireball_instance : Projectile = fireball.instantiate()

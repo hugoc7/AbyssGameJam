@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://ck8o5v52wgvf6"]
+[gd_scene load_steps=116 format=3 uid="uid://ck8o5v52wgvf6"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_esoqt"]
 [ext_resource type="PackedScene" uid="uid://ndaq34x515wt" path="res://projectiles/fireball.tscn" id="2_8pqtj"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://s4rq5kdjho0g" path="res://player/sound/Character_DeathSFX.wav" id="16_x4a8t"]
 [ext_resource type="AudioStream" uid="uid://ciu74snxcg8ok" path="res://player/sound/Character_EffortSFX.tres" id="17_rfjf8"]
 [ext_resource type="AudioStream" uid="uid://g6qm4s3atdvn" path="res://player/sound/Character_HitSFX.tres" id="18_papte"]
+[ext_resource type="AudioStream" uid="uid://p0kyou56vhig" path="res://enemy/Shield/SFX/Shield_Blocked_SFX.tres" id="20_3tpcg"]
 
 [sub_resource type="Gradient" id="Gradient_o247o"]
 colors = PackedColorArray(1, 1, 0.317647, 1, 0, 0, 0, 1)
@@ -727,7 +728,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7urbb"]
-size = Vector2(282.418, 171)
+size = Vector2(273.339, 218)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 12
@@ -743,7 +744,7 @@ texture_scale = 5.0
 height = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
+position = Vector2(0, -9)
 shape = SubResource("CapsuleShape2D_2jslw")
 
 [node name="Body" type="Node2D" parent="."]
@@ -755,7 +756,8 @@ position = Vector2(52, -63)
 position = Vector2(133, -88)
 scale = Vector2(4.0625, 6.09375)
 sprite_frames = SubResource("SpriteFrames_ayksq")
-animation = &"hit_black"
+animation = &"atk_black"
+frame = 1
 
 [node name="AttackArea" type="Area2D" parent="Body"]
 scale = Vector2(0.490234, 1)
@@ -763,7 +765,7 @@ collision_layer = 128
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/AttackArea"]
-position = Vector2(193.325, -2.5)
+position = Vector2(291.698, -11)
 shape = SubResource("RectangleShape2D_7urbb")
 
 [node name="ShortAttackTimer" type="Timer" parent="."]
@@ -793,5 +795,9 @@ stream = ExtResource("17_rfjf8")
 
 [node name="HitSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_papte")
+
+[node name="ShieldHitSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_3tpcg")
+volume_db = 10.0
 
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1q47a4hjg4jq"]
+
+[ext_resource type="Script" path="res://enemy/Shield/Shield.gd" id="1_adk4x"]
+[ext_resource type="SpriteFrames" uid="uid://bw87b6nxo3alb" path="res://enemy/Shield/Animations/Shield_SpriteFrame.tres" id="2_igs33"]
+[ext_resource type="AudioStream" uid="uid://3r1gkjwn0lsx" path="res://enemy/Shield/SFX/Shield_ExplosionSFX.wav" id="3_0evub"]
+
+[node name="Shield" type="Node2D"]
+script = ExtResource("1_adk4x")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = ExtResource("2_igs33")
+animation = &"loop_black"
+
+[node name="Shield_Destroyed_SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0evub")
+volume_db = 10.0
+
+[connection signal="animation_looped" from="Sprite" to="." method="_on_sprite_animation_looped"]

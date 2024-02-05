@@ -25,7 +25,6 @@ size = Vector2(7656, 70)
 
 [node name="HUgo" type="Node2D"]
 script = ExtResource("1_dhjyw")
-world_rect = null
 main_menu = ExtResource("2_7e8bt")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -173,6 +172,9 @@ color = 1
 player = NodePath("../../Player")
 attack_range = 100.0
 life = 20
+shielded = true
+shield_health = 10
+shield_color = 0
 
 [node name="EnemyContact4" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
 position = Vector2(1976, 531)
@@ -219,4 +221,5 @@ texture = ExtResource("11_y84o4")
 region_enabled = true
 region_rect = Rect2(-846.862, 0, 1420.86, 32)
 
+[connection signal="level_color_state_changed" from="." to="Player" method="_on_background_color_changed"]
 [connection signal="life_changed" from="Player" to="HUD" method="_on_player_life_changed"]
