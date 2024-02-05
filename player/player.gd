@@ -68,7 +68,7 @@ func short_attack():
 			elif area.color_as_text == color_as_text :
 				area.take_damage(damage)
 				$SwordHitSound.play()
-			
+
 func range_attack():
 	var fireball_instance : Projectile = fireball.instantiate()
 	var direction = global_position.direction_to(get_global_mouse_position()) 
@@ -161,8 +161,8 @@ func _unhandled_input(event):
 	if event.is_action_pressed("attack_short") and not is_short_attack_on_cooldown:
 		$ShortAttackTimer.start()
 		state = ATTACK
-	if event.is_action_pressed("attack_range") and not is_range_attack_on_cooldown:
-		range_attack()
+	#if event.is_action_pressed("attack_range") and not is_range_attack_on_cooldown:
+	#	range_attack()
 
 
 func _on_invincibility_timer_timeout():

@@ -46,16 +46,10 @@ position = Vector2(136, 489)
 [node name="EnemyContact" parent="Enemy" instance=ExtResource("5_mowys")]
 position = Vector2(843, 262)
 life = 200
-shielded = null
-shield_health = null
-shield_color = null
 
 [node name="EnemyContact2" parent="Enemy" instance=ExtResource("5_mowys")]
 position = Vector2(518, 307)
 color = 1
-shielded = null
-shield_health = null
-shield_color = null
 
 [node name="HUD" parent="." instance=ExtResource("7_vfnx0")]
 

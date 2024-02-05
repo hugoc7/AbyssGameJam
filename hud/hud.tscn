@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://85ag7xxy5r67"]
+[gd_scene load_steps=8 format=3 uid="uid://85ag7xxy5r67"]
 
 [ext_resource type="Script" path="res://hud/hud.gd" id="1_lw3ko"]
 [ext_resource type="Texture2D" uid="uid://ba7acng4dtkd" path="res://player/Coeur.png" id="2_1c7hv"]
 [ext_resource type="Texture2D" uid="uid://lyvycsp7imro" path="res://player/Coeur_Vide.png" id="3_887xw"]
+[ext_resource type="Texture2D" uid="uid://cbp740d3lg16a" path="res://menu/Tuto/AttackTuto.png" id="4_y2evj"]
+[ext_resource type="Texture2D" uid="uid://c0xxrwt0qf4xb" path="res://menu/Tuto/JumpTuto.png" id="5_2h6ut"]
+[ext_resource type="Texture2D" uid="uid://c3xmigug8374y" path="res://menu/Tuto/MovementTuto.png" id="6_2fw5i"]
+[ext_resource type="Texture2D" uid="uid://3g746mmhjq8g" path="res://menu/Tuto/MoonPhaseTuto.png" id="7_rf4fd"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_lw3ko")
@@ -117,3 +121,34 @@ texture = ExtResource("2_1c7hv")
 position = Vector2(408, 48)
 scale = Vector2(3, 3)
 texture = ExtResource("2_1c7hv")
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -574.0
+offset_top = -30.0
+offset_right = 578.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(576, 0)
+
+[node name="AttackTuto" type="Sprite2D" parent="Panel"]
+position = Vector2(239.425, -5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_y2evj")
+
+[node name="JumpTuto" type="Sprite2D" parent="Panel/AttackTuto"]
+position = Vector2(1100, 0)
+texture = ExtResource("5_2h6ut")
+
+[node name="MovementTuto" type="Sprite2D" parent="Panel/AttackTuto/JumpTuto"]
+position = Vector2(1100, 0)
+texture = ExtResource("6_2fw5i")
+
+[node name="MoonPhaseTuto" type="Sprite2D" parent="Panel/AttackTuto/JumpTuto/MovementTuto"]
+position = Vector2(1100, 0)
+texture = ExtResource("7_rf4fd")
