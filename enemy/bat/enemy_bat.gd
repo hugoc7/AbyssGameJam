@@ -49,7 +49,7 @@ func fire_projectile():
 	set_animation("atk")
 	var projectile_instance : Projectile = projectile.instantiate()
 	projectile_instance.damage = self.damage
-	projectile_instance.collision_layer = 5
+	projectile_instance.collision_layer = 0
 	projectile_instance.collision_mask = 9
 	projectile_instance.launch(position, projectile_speed*global_position.direction_to(player.global_position))
 	get_parent().add_child(projectile_instance)

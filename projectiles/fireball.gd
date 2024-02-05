@@ -19,13 +19,16 @@ func _process(delta):
 	
 
 func _on_area_entered(area):
-	destroy()
-	
 	if area.has_method("take_damage"):
 		area.take_damage(damage)
+	destroy()
+	
+	
 
 
 func _on_body_entered(body):
+	if body.has_method("take_damage"):
+		body.take_damage(damage)
 	destroy()
 
 

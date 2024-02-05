@@ -48,7 +48,7 @@ texture = SubResource("GradientTexture1D_gf473")
 [node name="Player" parent="." instance=ExtResource("6_gvd8d")]
 position = Vector2(-1578, 489)
 speed = 400.0
-jump_velocity = -200.0
+jump_velocity = -600.0
 
 [node name="Projectiles" type="Node" parent="."]
 
