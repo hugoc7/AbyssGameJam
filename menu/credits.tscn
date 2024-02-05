@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://crqw33j1ps6if"]
+[gd_scene load_steps=6 format=3 uid="uid://crqw33j1ps6if"]
 
 [ext_resource type="Script" path="res://menu/credits.gd" id="1_gfrpv"]
 [ext_resource type="Texture2D" uid="uid://bh7gny0jc8oov" path="res://background/Background_Noir.png" id="2_58obn"]
 [ext_resource type="SpriteFrames" uid="uid://huapt4q2gmhx" path="res://menu/Button/Animation/Button_SpriteSheet.tres" id="3_2qvqc"]
 [ext_resource type="SpriteFrames" uid="uid://cndm0frpp2x81" path="res://menu/Button/Animation/Texte_SpriteSheet.tres" id="4_dgjdu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hbuvl"]
+font_size = 25
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -35,25 +38,54 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -142.0
-offset_right = 400.0
-offset_bottom = 325.0
+offset_left = -543.0
+offset_top = -144.0
+offset_right = 14.0
+offset_bottom = 195.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "Amaury Launay (Amo)
+text = "Developers :
+Amaury Launay (Amo)
 Damien Soustre (Laitherha)
 Elian Soustre (Nostro)
 Hugo Caroubalos (Diplododicus)
+
 Music : 
-Vivaldi \"L'Inverno, Op. 8 No. 4\" by George Pollen
-"
+Vivaldi \"L'Inverno, Op. 8 No. 4\" sequences by Š George Pollen"
+label_settings = SubResource("LabelSettings_hbuvl")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 109.0
+offset_top = -125.0
+offset_right = 557.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Assets : 
+aamatniekss (character)
+IronnButterfly (zombie)
+Admurin (bat)
+ma9ici4n (grass)
+karsiori (trees)
+BDragon1727 (shield FX)
+NYKNCK (fire FX)"
+label_settings = SubResource("LabelSettings_hbuvl")
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Quit" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 469.0
 offset_top = 563.0
 offset_right = 701.0
@@ -86,4 +118,4 @@ sprite_frames = ExtResource("4_dgjdu")
 animation = &"credits_click"
 
 [connection signal="button_down" from="Quit" to="." method="_on_quit_button_down"]
-[connection signal="pressed" from="Quit" to="." method="_on_back_pressed"]
+[connection signal="animation_finished" from="Quit/Node2D/text" to="." method="_on_back_pressed"]
