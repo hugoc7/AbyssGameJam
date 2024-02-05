@@ -83,7 +83,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_abpd1")
 }],
-"loop": true,
+"loop": false,
 "name": &"credits_click",
 "speed": 5.0
 }, {

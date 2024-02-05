@@ -369,8 +369,8 @@ sprite_frames = ExtResource("5_xmjj1")
 animation = &"quit_click"
 
 [connection signal="button_down" from="Play" to="." method="_on_play_button_down"]
-[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="animation_finished" from="Play/Node2D/text" to="." method="_on_play_pressed"]
 [connection signal="button_down" from="Credits" to="." method="_on_credits_button_down"]
-[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="animation_finished" from="Credits/Node2D/text" to="." method="_on_credits_pressed"]
 [connection signal="button_down" from="Quit" to="." method="_on_quit_button_down"]
-[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="animation_finished" from="Quit/Node2D/text" to="." method="_on_quit_pressed"]
