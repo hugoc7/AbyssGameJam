@@ -1,9 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://nycgtoto6ikd"]
+[gd_scene load_steps=10 format=3 uid="uid://nycgtoto6ikd"]
 
 [ext_resource type="Script" path="res://game_manager/game_manager.gd" id="1_a2u5j"]
-[ext_resource type="Texture2D" uid="uid://dl4qnp8j0q2fs" path="res://background/bkg_light.tres" id="2_y1sko"]
 [ext_resource type="Script" path="res://background/background.gd" id="3_hkw57"]
-[ext_resource type="Texture2D" uid="uid://chskkiuolcqd6" path="res://background/bkg_dark.tres" id="4_cycmt"]
 [ext_resource type="PackedScene" uid="uid://ck8o5v52wgvf6" path="res://player/player.tscn" id="5_g4ut1"]
 [ext_resource type="PackedScene" uid="uid://cbe8prr8x1r0m" path="res://enemy/contact/enemy_contact.tscn" id="6_1xb78"]
 [ext_resource type="PackedScene" uid="uid://85ag7xxy5r67" path="res://hud/hud.tscn" id="7_jrqam"]
@@ -27,10 +25,7 @@ position = Vector2(120, 390)
 position = Vector2(575, 320.764)
 rotation = 1.5708
 scale = Vector2(2.52317, 1152.3)
-texture = ExtResource("2_y1sko")
 script = ExtResource("3_hkw57")
-dark_texture = ExtResource("4_cycmt")
-light_texture = ExtResource("2_y1sko")
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(577, 617.5)

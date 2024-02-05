@@ -1,49 +1,131 @@
-[gd_scene load_steps=13 format=3 uid="uid://3msm8m5agd32"]
+[gd_scene load_steps=21 format=3 uid="uid://3msm8m5agd32"]
 
 [ext_resource type="Script" path="res://game_manager/game_manager.gd" id="1_dhjyw"]
 [ext_resource type="PackedScene" uid="uid://bmul6447vnsfc" path="res://menu/main_menu.tscn" id="2_7e8bt"]
+[ext_resource type="Texture2D" uid="uid://dupg7nlgpy05o" path="res://background/Background_Blanc.png" id="3_mnh24"]
 [ext_resource type="Script" path="res://background/background.gd" id="4_b4xrc"]
+[ext_resource type="Texture2D" uid="uid://bh7gny0jc8oov" path="res://background/Background_Noir.png" id="5_o53hr"]
 [ext_resource type="PackedScene" uid="uid://ck8o5v52wgvf6" path="res://player/player.tscn" id="6_gvd8d"]
+[ext_resource type="Texture2D" uid="uid://cju2e3xitswtc" path="res://background/Lune_Blanche.png" id="6_poqle"]
+[ext_resource type="Texture2D" uid="uid://ccv7aask0atan" path="res://background/Lune_Noir.png" id="7_5hsqk"]
 [ext_resource type="PackedScene" uid="uid://dkdfa3qyl3g7c" path="res://enemy/bat/enemy_bat.tscn" id="7_uj0o1"]
+[ext_resource type="Texture2D" uid="uid://c56nj5mli5aes" path="res://background/Tree_VerySmall_Blanc.png" id="8_4born"]
 [ext_resource type="PackedScene" uid="uid://cbe8prr8x1r0m" path="res://enemy/contact/enemy_contact.tscn" id="8_wx56g"]
 [ext_resource type="PackedScene" uid="uid://85ag7xxy5r67" path="res://hud/hud.tscn" id="9_72y83"]
+[ext_resource type="Texture2D" uid="uid://ch6u7bf4shbie" path="res://background/Tree_VerySmall_Noir.png" id="9_te73n"]
 [ext_resource type="Script" path="res://camera/camera.gd" id="10_nv2xi"]
+[ext_resource type="Texture2D" uid="uid://ebc2kimwwx3" path="res://background/Tree_Small_Blanc.png" id="11_lsk22"]
 [ext_resource type="Texture2D" uid="uid://04k2v4omn6ya" path="res://background/Grass.png" id="11_y84o4"]
+[ext_resource type="Texture2D" uid="uid://c32t8fm180s2n" path="res://background/Tree_Small_Noir.png" id="12_wiwtu"]
+[ext_resource type="Texture2D" uid="uid://d3bbfxl8gbd1l" path="res://background/Tree_Medium_Blanc.png" id="13_e863v"]
+[ext_resource type="Texture2D" uid="uid://bb8nthoqvxjfl" path="res://background/Tree_Medium_Noir.png" id="14_0yb8k"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w26nm"]
-size = Vector2(4779, 44)
-
-[sub_resource type="Gradient" id="Gradient_p06mu"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_gf473"]
-gradient = SubResource("Gradient_p06mu")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6h1wx"]
+size = Vector2(7656, 70)
 
 [node name="HUgo" type="Node2D"]
 script = ExtResource("1_dhjyw")
 main_menu = ExtResource("2_7e8bt")
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 1)
+
+[node name="Bkg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer1"]
+texture_repeat = 2
+position = Vector2(1476, 76)
+scale = Vector2(4, 4)
+texture = ExtResource("3_mnh24")
+region_enabled = true
+region_rect = Rect2(-482.438, -195.623, 1919.83, 427.273)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("5_o53hr")
+white_texture = ExtResource("3_mnh24")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(5, 1)
+motion_scale = Vector2(0.2, 1)
+
+[node name="Moon" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(187, -198)
+scale = Vector2(4, 4)
+texture = ExtResource("6_poqle")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("7_5hsqk")
+white_texture = ExtResource("6_poqle")
+
+[node name="TreeVerySmall2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(721, 428)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="Grass" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_repeat = 2
+position = Vector2(700, 1098)
+scale = Vector2(2, 2)
+texture = ExtResource("11_y84o4")
+region_enabled = true
+region_rect = Rect2(-846.862, 0, 1420.86, 32)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("11_y84o4")
+white_texture = ExtResource("11_y84o4")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(10, 2)
+motion_scale = Vector2(0.5, 1)
+
+[node name="TreeSmall" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(904, 426)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="Grass" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_repeat = 2
+position = Vector2(694, 1316)
+scale = Vector2(2, 2)
+texture = ExtResource("11_y84o4")
+region_enabled = true
+region_rect = Rect2(-846.862, 0, 1420.86, 32)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("11_y84o4")
+white_texture = ExtResource("11_y84o4")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(20, 4)
+motion_scale = Vector2(0.8, 1)
+
+[node name="TreeMedium" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(1113, 426)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="Grass" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture_repeat = 2
+position = Vector2(851, 1172)
+scale = Vector2(2, 2)
+texture = ExtResource("11_y84o4")
+region_enabled = true
+region_rect = Rect2(-846.862, 0, 1420.86, 32)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("11_y84o4")
+white_texture = ExtResource("11_y84o4")
+
 [node name="PlayerSpawn" type="Marker2D" parent="."]
 position = Vector2(120, 390)
-
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(576.673, 320.764)
-rotation = 1.5708
-scale = Vector2(2.52317, 4783.64)
-script = ExtResource("4_b4xrc")
-
-[node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(577, 617.5)
-collision_layer = 8
-collision_mask = 0
-
-[node name="Collider" type="CollisionShape2D" parent="Ground"]
-position = Vector2(-5.5, 0.5)
-shape = SubResource("RectangleShape2D_w26nm")
-debug_color = Color(0.572549, 0.454902, 0.823529, 0.419608)
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground"]
-scale = Vector2(18.6561, 43)
-texture = SubResource("GradientTexture1D_gf473")
 
 [node name="Player" parent="." instance=ExtResource("6_gvd8d")]
 position = Vector2(-1578, 489)
@@ -110,9 +192,22 @@ position = Vector2(-1574, 310)
 script = ExtResource("10_nv2xi")
 target = NodePath("../Player")
 
-[node name="Grass" type="Sprite2D" parent="."]
-position = Vector2(-1022, 537)
-scale = Vector2(3.65625, 3.65625)
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(797, 565)
+collision_layer = 8
+collision_mask = 13
+
+[node name="Collider" type="CollisionShape2D" parent="Ground"]
+position = Vector2(672, 69)
+shape = SubResource("RectangleShape2D_6h1wx")
+debug_color = Color(0.572549, 0.454902, 0.823529, 0.419608)
+
+[node name="Grass" type="Sprite2D" parent="Ground"]
+texture_repeat = 2
+position = Vector2(671.5, 64.4552)
+scale = Vector2(5.40493, 2)
 texture = ExtResource("11_y84o4")
+region_enabled = true
+region_rect = Rect2(-846.862, 0, 1420.86, 32)
 
 [connection signal="life_changed" from="Player" to="HUD" method="_on_player_life_changed"]
