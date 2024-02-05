@@ -1,8 +1,11 @@
-[gd_scene load_steps=43 format=3 uid="uid://cnwgam5bplu6a"]
+[gd_scene load_steps=46 format=3 uid="uid://bohks2gk1v2ss"]
 
 [ext_resource type="Script" path="res://menu/main_menu.gd" id="1_2h88l"]
 [ext_resource type="Texture2D" uid="uid://bh7gny0jc8oov" path="res://background/Background_Noir.png" id="2_8gkxf"]
 [ext_resource type="Texture2D" uid="uid://cct0vdyr7s1xl" path="res://menu/MainTitle-Sheet.png" id="3_2i8dp"]
+[ext_resource type="Texture2D" uid="uid://kvkw0xo5w1e4" path="res://menu/Victory.png" id="4_cx4fl"]
+[ext_resource type="SpriteFrames" uid="uid://huapt4q2gmhx" path="res://menu/Button/Animation/Button_SpriteSheet.tres" id="5_3cvp4"]
+[ext_resource type="SpriteFrames" uid="uid://cndm0frpp2x81" path="res://menu/Button/Animation/Texte_SpriteSheet.tres" id="6_ox8ar"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g1g1l"]
 atlas = ExtResource("3_2i8dp")
@@ -278,7 +281,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="MainMenu" type="Control"]
+[node name="victory" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -296,33 +299,46 @@ region_enabled = true
 region_rect = Rect2(-482.438, -195.623, 1919.83, 427.273)
 
 [node name="Title" type="AnimatedSprite2D" parent="."]
-position = Vector2(588, 200)
-scale = Vector2(6, 6)
+position = Vector2(230, 194)
+scale = Vector2(6.26563, 6.59375)
 sprite_frames = SubResource("SpriteFrames_f3gvq")
 
-[node name="HBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 404.0
-offset_top = 348.0
-offset_right = 828.0
-offset_bottom = 644.0
-alignment = 1
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -494.0
+offset_top = -246.0
+offset_right = -366.0
+offset_bottom = -182.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+texture = ExtResource("4_cx4fl")
 
-[node name="Play" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Play"
-
-[node name="Credits" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Credits"
-
-[node name="Quit" type="Button" parent="HBoxContainer"]
-layout_mode = 2
+[node name="Quit" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 492.0
+offset_top = 563.0
+offset_right = 724.0
+offset_bottom = 616.0
 theme_override_font_sizes/font_size = 32
 text = "Quit"
 
-[connection signal="pressed" from="HBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="HBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Node2D" type="Node2D" parent="Quit"]
+position = Vector2(113, -4)
+scale = Vector2(4, 4)
+
+[node name="fond" type="AnimatedSprite2D" parent="Quit/Node2D"]
+sprite_frames = ExtResource("5_3cvp4")
+animation = &"button_pressed"
+
+[node name="text" type="AnimatedSprite2D" parent="Quit/Node2D"]
+sprite_frames = ExtResource("6_ox8ar")
+animation = &"return_click"
+
+[connection signal="button_down" from="Quit" to="." method="_on_quit_button_down"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

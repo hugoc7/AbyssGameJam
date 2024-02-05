@@ -37,7 +37,7 @@ func _ready():
 
 
 func _on_life_changed(life: int):
-	if life == 0:
+	if life <= 0:
 		get_tree().change_scene_to_file("res://menu/gameover.tscn")
 
 func _process(delta):
