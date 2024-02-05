@@ -23,7 +23,6 @@ const y_speed: float = 150
 var color_as_text = "white" 
 @onready var sprite : AnimatedSprite2D = $Sprite
 
-var is_in_cooldown = false
 
 var turnaround_timer : SceneTreeTimer = null
 
@@ -68,8 +67,6 @@ func _ready():
 	
 	sprite.play(sprite.animation)
 	turnaround_timer = get_tree().create_timer(0)
-	body_entered.connect(_on_body_entered)
-	$CooldownTimer.timeout.connect(_on_cooldown_timeout)
 	
 	
 	
@@ -101,22 +98,4 @@ func _process(delta):
 
 		global_position.y += y_speed * delta * (abs(abs(int(global_position.x) % x_oscilate_period) - x_oscilate_period/ 2 )-x_oscilate_period/4)/x_oscilate_period*4
 
-			
-	if sqr_dist_to_player < attack_range*attack_range and not is_in_cooldown:
-		_damage_player()
-		is_in_cooldown = true
-		$CooldownTimer.start()
-
-func _damage_player():
-	if player == null:
-		return
-	player.take_damage(damage)
-	#print_debug("atk player")
-
-func _on_cooldown_timeout():
-	is_in_cooldown = false
-
-func _on_body_entered(body):
-	pass
-	#_damage_player()
 	

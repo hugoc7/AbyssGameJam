@@ -30,9 +30,6 @@ position = Vector2(-3, -2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_okoi0")
 
-[node name="CooldownTimer" type="Timer" parent="."]
-one_shot = true
-
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true

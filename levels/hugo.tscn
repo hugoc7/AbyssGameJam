@@ -69,7 +69,9 @@ position = Vector2(578, 332)
 script = ExtResource("8_s1ufl")
 target = NodePath("../Player")
 
-[node name="EnemyBat" parent="." instance=ExtResource("8_kusof")]
+[node name="EnemyBat" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_kusof")]
 position = Vector2(440, 299)
+player = NodePath("../Player")
+projectile_speed = 100.0
 
 [connection signal="life_changed" from="Player" to="HUD" method="_on_player_life_changed"]

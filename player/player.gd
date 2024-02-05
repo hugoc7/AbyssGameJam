@@ -132,7 +132,7 @@ func _process(delta):
 		
 
 func _unhandled_input(event):
-	if state == DYING:
+	if state == DYING or is_invincible:
 		return
 	if event.is_action_pressed("attack_short") and not is_short_attack_on_cooldown:
 		$ShortAttackTimer.start()
