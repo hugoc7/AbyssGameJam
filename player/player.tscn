@@ -32,7 +32,7 @@ fill_to = Vector2(0.883621, 0.211207)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2jslw"]
 radius = 41.0
-height = 234.0
+height = 224.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_py1pr"]
 atlas = ExtResource("3_bs3hb")
@@ -744,7 +744,7 @@ texture_scale = 5.0
 height = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9)
+position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_2jslw")
 
 [node name="Body" type="Node2D" parent="."]
@@ -756,8 +756,8 @@ position = Vector2(52, -63)
 position = Vector2(133, -88)
 scale = Vector2(4.0625, 6.09375)
 sprite_frames = SubResource("SpriteFrames_ayksq")
-animation = &"atk_black"
-frame = 1
+animation = &"jump_black"
+frame_progress = 0.853652
 
 [node name="AttackArea" type="Area2D" parent="Body"]
 scale = Vector2(0.490234, 1)

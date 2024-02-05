@@ -32,7 +32,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_okoi0")
 
 [node name="AttackTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 4.0
 one_shot = true
 
 [node name="Hit_SFX" type="AudioStreamPlayer2D" parent="."]

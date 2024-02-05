@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://3msm8m5agd32"]
+[gd_scene load_steps=25 format=3 uid="uid://3msm8m5agd32"]
 
 [ext_resource type="Script" path="res://game_manager/game_manager.gd" id="1_dhjyw"]
 [ext_resource type="PackedScene" uid="uid://bmul6447vnsfc" path="res://menu/main_menu.tscn" id="2_7e8bt"]
@@ -15,16 +15,21 @@
 [ext_resource type="Texture2D" uid="uid://ch6u7bf4shbie" path="res://background/Tree_VerySmall_Noir.png" id="9_te73n"]
 [ext_resource type="Script" path="res://camera/camera.gd" id="10_nv2xi"]
 [ext_resource type="Texture2D" uid="uid://ebc2kimwwx3" path="res://background/Tree_Small_Blanc.png" id="11_lsk22"]
+[ext_resource type="Texture2D" uid="uid://bw5p2x0g47qv2" path="res://background/Tree_2_Small_Blanc.png" id="11_xqe8o"]
 [ext_resource type="Texture2D" uid="uid://04k2v4omn6ya" path="res://background/Grass.png" id="11_y84o4"]
 [ext_resource type="Texture2D" uid="uid://c32t8fm180s2n" path="res://background/Tree_Small_Noir.png" id="12_wiwtu"]
+[ext_resource type="Texture2D" uid="uid://ooyi2mnyd0ty" path="res://background/Tree_2_Small_Noir.png" id="12_wjfkf"]
 [ext_resource type="Texture2D" uid="uid://d3bbfxl8gbd1l" path="res://background/Tree_Medium_Blanc.png" id="13_e863v"]
 [ext_resource type="Texture2D" uid="uid://bb8nthoqvxjfl" path="res://background/Tree_Medium_Noir.png" id="14_0yb8k"]
+[ext_resource type="Texture2D" uid="uid://ce7107iewo1tt" path="res://background/Tree_2_Medium_Blanc.png" id="17_4rm5g"]
+[ext_resource type="Texture2D" uid="uid://cew2w34tmqsao" path="res://background/Tree_2_Medium_Noir.png" id="18_aqtnn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6h1wx"]
-size = Vector2(7656, 70)
+size = Vector2(11928, 70)
 
 [node name="HUgo" type="Node2D"]
 script = ExtResource("1_dhjyw")
+world_rect = Rect2(-10000, -10000, 20000, 20000)
 main_menu = ExtResource("2_7e8bt")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -34,8 +39,8 @@ motion_scale = Vector2(0.1, 1)
 
 [node name="Bkg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer1"]
 texture_repeat = 2
-position = Vector2(1476, 76)
-scale = Vector2(4, 4)
+position = Vector2(3604, 76)
+scale = Vector2(6.21782, 4)
 texture = ExtResource("3_mnh24")
 region_enabled = true
 region_rect = Rect2(-482.438, -195.623, 1919.83, 427.273)
@@ -57,7 +62,259 @@ position = Vector2(5, 1)
 motion_scale = Vector2(0.2, 1)
 
 [node name="TreeVerySmall2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(721, 428)
+position = Vector2(717, 411)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall10" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1222, 412)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall11" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(156, 411)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall12" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1480, 410)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall13" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-81, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall15" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-835, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall20" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(598, 412)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall21" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(3169, 412)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall22" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(4220, 410)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall23" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(5528, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall18" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-1835, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall19" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-1835, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall16" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-1590, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall17" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-1590, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall14" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-587, 410)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1565, 412)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1565, 412)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(5111, 412)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(6145, 411)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall29" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(6394, 412)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall30" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(6643, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall8" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(7562, 411)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall24" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(7851, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall25" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(8204, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall26" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(9050, 412)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall27" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(9381, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall28" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(9525, 412)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall9" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(8491, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4born")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("9_te73n")
+white_texture = ExtResource("8_4born")
+
+[node name="TreeVerySmall4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(2459, 411)
 scale = Vector2(4, 4)
 texture = ExtResource("8_4born")
 region_rect = Rect2(-620.5, -250.625, 1792, 562)
@@ -82,6 +339,393 @@ motion_scale = Vector2(0.5, 1)
 
 [node name="TreeSmall" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2(904, 426)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall12" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-27, 416)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall13" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(1411, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall14" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(2022, 416)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall15" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(2731, 416)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall16" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(2974, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall17" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(3429, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall18" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(4020, 418)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall19" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(4470, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall20" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(5235, 416)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall22" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(5692, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall44" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(6565, 417)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall23" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(6087, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall43" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(6448, 416)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall25" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(7500, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall26" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(8119, 418)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall28" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(8712, 417)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall29" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(9143, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall30" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(9316, 417)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall31" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(8772, 416)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall42" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(8971, 417)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall27" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(7783, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall24" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(7016, 418)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xqe8o")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wjfkf")
+white_texture = ExtResource("11_xqe8o")
+
+[node name="TreeSmall4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(2344, 410)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall9" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(3081, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall32" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(4130, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall45" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(5625, 410)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall40" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(4781, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall41" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(4662, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall33" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(2889, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall34" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(1782, 411)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall35" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(791, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall36" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-286, 412)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall37" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-903, 411)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall38" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-1911, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall39" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-2091, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall10" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(2672, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall11" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(2811, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(5021, 412)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall8" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(5021, 412)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(3696, 410)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(3696, 410)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(207, 417)
+scale = Vector2(4, 4)
+texture = ExtResource("11_lsk22")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("12_wiwtu")
+white_texture = ExtResource("11_lsk22")
+
+[node name="TreeSmall3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-1281, 410)
 scale = Vector2(4, 4)
 texture = ExtResource("11_lsk22")
 region_rect = Rect2(-620.5, -250.625, 1792, 562)
@@ -113,6 +757,492 @@ script = ExtResource("4_b4xrc")
 black_texture = ExtResource("14_0yb8k")
 white_texture = ExtResource("13_e863v")
 
+[node name="TreeMedium50" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(979, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium52" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(548, 408)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium8" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(-172, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium35" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(-663, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium17" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(-989, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium33" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(-1689, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium18" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(305, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium18" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4/TreeMedium18"]
+position = Vector2(305, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium53" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(681, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium18" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4/TreeMedium53"]
+position = Vector2(305, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium51" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(1322, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium19" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(1954, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium20" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(2525, 418)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium21" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(3289, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium46" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(3172, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium22" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(4378, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium36" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(4259, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium23" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(5417, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium39" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(5879, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium38" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(4609, 417)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium24" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(6328, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium27" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(6838, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium28" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(7916, 416)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium29" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(7629, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium30" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(8647, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium43" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(8904, 416)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium42" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(8398, 416)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium31" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(9221, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium25" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(7312, 416)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium26" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(7312, 416)
+scale = Vector2(4, 4)
+texture = ExtResource("17_4rm5g")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("18_aqtnn")
+white_texture = ExtResource("17_4rm5g")
+
+[node name="TreeMedium9" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(-1377, 411)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium10" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(-1377, 411)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium32" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(-2019, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium34" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(-2227, 410)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium11" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(-1152, 408)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(2237, 410)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium12" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(2415, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium13" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(2595, 411)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium47" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(3370, 410)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium48" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(3948, 410)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium14" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(2773, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium15" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(1516, 409)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium16" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(1694, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(3790, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(5299, 409)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium37" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(4715, 413)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(6726, 410)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium40" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(5985, 414)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium49" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(6193, 411)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(8048, 409)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium41" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(8291, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(9408, 412)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium44" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(8528, 411)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
+[node name="TreeMedium45" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(7713, 415)
+scale = Vector2(4, 4)
+texture = ExtResource("13_e863v")
+region_rect = Rect2(-620.5, -250.625, 1792, 562)
+script = ExtResource("4_b4xrc")
+black_texture = ExtResource("14_0yb8k")
+white_texture = ExtResource("13_e863v")
+
 [node name="Grass" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
 texture_repeat = 2
 position = Vector2(851, 1172)
@@ -128,24 +1258,13 @@ white_texture = ExtResource("11_y84o4")
 position = Vector2(120, 390)
 
 [node name="Player" parent="." instance=ExtResource("6_gvd8d")]
-position = Vector2(-1578, 467)
+position = Vector2(-1758, 473)
 speed = 400.0
 jump_velocity = -600.0
 
 [node name="Projectiles" type="Node" parent="."]
 
 [node name="Enemy" type="Node" parent="."]
-
-[node name="EnemyBat" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_uj0o1")]
-position = Vector2(2869, 389)
-player = NodePath("../../Player")
-speed = 100.0
-life = 10
-
-[node name="EnemyBat3" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_uj0o1")]
-position = Vector2(2756, 322)
-player = NodePath("../../Player")
-speed = 100.0
 
 [node name="EnemyBat2" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_uj0o1")]
 position = Vector2(1209, 374)
@@ -154,15 +1273,90 @@ player = NodePath("../../Player")
 speed = 100.0
 life = 10
 
+[node name="EnemyBat3" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_uj0o1")]
+position = Vector2(3708, 392)
+color = 1
+player = NodePath("../../Player")
+speed = 100.0
+life = 10
+
+[node name="EnemyBat4" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_uj0o1")]
+position = Vector2(3857, 427)
+player = NodePath("../../Player")
+speed = 100.0
+life = 10
+
+[node name="EnemyBat5" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_uj0o1")]
+position = Vector2(5024, 397)
+color = 1
+player = NodePath("../../Player")
+speed = 100.0
+life = 10
+
+[node name="EnemyBat6" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_uj0o1")]
+position = Vector2(5714, 428)
+color = 1
+player = NodePath("../../Player")
+speed = 100.0
+life = 10
+
+[node name="EnemyBat7" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_uj0o1")]
+position = Vector2(5820, 376)
+color = 1
+player = NodePath("../../Player")
+speed = 100.0
+life = 10
+
+[node name="EnemyBat11" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_uj0o1")]
+position = Vector2(7205, 336)
+color = 1
+player = NodePath("../../Player")
+speed = 100.0
+life = 10
+
+[node name="EnemyBat8" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_uj0o1")]
+position = Vector2(5905, 452)
+player = NodePath("../../Player")
+speed = 100.0
+life = 10
+
+[node name="EnemyBat9" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_uj0o1")]
+position = Vector2(5635, 382)
+player = NodePath("../../Player")
+speed = 100.0
+life = 10
+
+[node name="EnemyBat10" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_uj0o1")]
+position = Vector2(7049, 382)
+player = NodePath("../../Player")
+speed = 100.0
+life = 10
+
+[node name="EnemyBat12" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_uj0o1")]
+position = Vector2(7205, 456)
+player = NodePath("../../Player")
+speed = 100.0
+life = 10
+
+[node name="EnemyBat13" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("7_uj0o1")]
+position = Vector2(7353, 398)
+player = NodePath("../../Player")
+speed = 100.0
+life = 10
+
 [node name="EnemyContact" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
 position = Vector2(482, 522)
 player = NodePath("../../Player")
+speed = 250.0
+damage = 20
 attack_range = 100.0
 life = 20
 
 [node name="EnemyContact3" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
-position = Vector2(1873, 522)
+position = Vector2(1876, 522)
 player = NodePath("../../Player")
+speed = 250.0
+damage = 20
 attack_range = 100.0
 life = 20
 
@@ -170,31 +1364,163 @@ life = 20
 position = Vector2(-532, 522)
 color = 1
 player = NodePath("../../Player")
+speed = 250.0
+damage = 20
+attack_range = 100.0
+life = 20
+shielded = false
+shield_health = 10
+shield_color = 0
+
+[node name="EnemyContact4" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
+position = Vector2(2116, 523)
+color = 1
+player = NodePath("../../Player")
+speed = 250.0
+damage = 20
+attack_range = 100.0
+life = 20
+
+[node name="EnemyContact5" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
+position = Vector2(2840, 522)
+color = 1
+player = NodePath("../../Player")
+speed = 250.0
+damage = 20
 attack_range = 100.0
 life = 20
 shielded = true
 shield_health = 10
 shield_color = 0
 
-[node name="EnemyContact4" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
-position = Vector2(1976, 522)
+[node name="EnemyContact7" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
+position = Vector2(3695, 523)
 color = 1
 player = NodePath("../../Player")
-attack_range = 100.0
-life = 20
-
-[node name="EnemyContact5" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
-position = Vector2(2671, 522)
-player = NodePath("../../Player")
+speed = 250.0
+damage = 20
 attack_range = 100.0
 life = 20
 
 [node name="EnemyContact6" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
-position = Vector2(2774, 522)
-color = 1
+position = Vector2(3584, 522)
 player = NodePath("../../Player")
+speed = 250.0
+damage = 20
 attack_range = 100.0
 life = 20
+shielded = true
+shield_health = 10
+shield_color = 1
+
+[node name="EnemyContact8" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
+position = Vector2(3896, 522)
+color = 1
+player = NodePath("../../Player")
+speed = 250.0
+damage = 20
+attack_range = 100.0
+life = 20
+shielded = true
+shield_health = 10
+shield_color = 0
+
+[node name="EnemyContact9" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
+position = Vector2(4892, 522)
+color = 1
+player = NodePath("../../Player")
+speed = 250.0
+damage = 20
+attack_range = 100.0
+life = 20
+
+[node name="EnemyContact10" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
+position = Vector2(5005, 522)
+player = NodePath("../../Player")
+speed = 250.0
+damage = 20
+attack_range = 100.0
+life = 20
+shielded = true
+shield_health = 10
+shield_color = 0
+
+[node name="EnemyContact11" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
+position = Vector2(5161, 523)
+player = NodePath("../../Player")
+speed = 250.0
+damage = 20
+attack_range = 100.0
+life = 20
+shielded = true
+shield_health = 10
+shield_color = 1
+
+[node name="EnemyContact12" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
+position = Vector2(7088, 523)
+player = NodePath("../../Player")
+speed = 250.0
+damage = 20
+attack_range = 100.0
+life = 20
+shielded = true
+shield_health = 10
+shield_color = 1
+
+[node name="EnemyContact13" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
+position = Vector2(7212, 523)
+player = NodePath("../../Player")
+speed = 250.0
+damage = 20
+attack_range = 100.0
+life = 20
+
+[node name="EnemyContact14" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
+position = Vector2(7331, 524)
+color = 1
+player = NodePath("../../Player")
+speed = 250.0
+damage = 20
+attack_range = 100.0
+life = 20
+shielded = true
+shield_health = 10
+shield_color = 0
+
+[node name="EnemyContact15" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
+position = Vector2(6953, 524)
+color = 1
+player = NodePath("../../Player")
+speed = 250.0
+damage = 20
+attack_range = 100.0
+life = 20
+shielded = true
+shield_health = 10
+shield_color = 0
+
+[node name="EnemyContact16" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
+position = Vector2(7453, 524)
+color = 1
+player = NodePath("../../Player")
+speed = 250.0
+damage = 20
+attack_range = 100.0
+life = 20
+shielded = true
+shield_health = 10
+shield_color = 0
+
+[node name="EnemyContact18" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("8_wx56g")]
+position = Vector2(7564, 523)
+player = NodePath("../../Player")
+speed = 250.0
+damage = 20
+attack_range = 100.0
+life = 20
+shielded = true
+shield_health = 10
+shield_color = 0
 
 [node name="HUD" parent="." instance=ExtResource("9_72y83")]
 
@@ -209,14 +1535,14 @@ collision_layer = 8
 collision_mask = 13
 
 [node name="Collider" type="CollisionShape2D" parent="Ground"]
-position = Vector2(672, 69)
+position = Vector2(2808, 69)
 shape = SubResource("RectangleShape2D_6h1wx")
 debug_color = Color(0.572549, 0.454902, 0.823529, 0.419608)
 
 [node name="Grass" type="Sprite2D" parent="Ground"]
 texture_repeat = 2
-position = Vector2(671.5, 73)
-scale = Vector2(6.756, 2.5)
+position = Vector2(2322.87, 73)
+scale = Vector2(9.08187, 2.5)
 texture = ExtResource("11_y84o4")
 region_enabled = true
 region_rect = Rect2(-846.862, 0, 1420.86, 32)
